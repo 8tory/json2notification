@@ -1,0 +1,14 @@
+task wrapper(type: Wrapper) {
+    gradleVersion = '2.2'
+}
+
+allprojects {
+    version = VERSION_NAME
+    group = GROUP
+    repositories {
+        jcenter()
+    }
+    tasks.withType(JavaCompile) {
+        options.compilerArgs << "-Xlint:deprecation" << "-Xlint:unchecked"
+    }
+}
