@@ -1,5 +1,5 @@
-Json to Android Notification
-============================
+Converter for JSON to Android Notification and Vice Versa
+=========================================================
 
 LICENSE
 =======
