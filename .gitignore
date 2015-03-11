@@ -28,3 +28,6 @@ proguard/
 # Android Studio
 .idea/
 *.iml
+
+# VIM
+*.swp
