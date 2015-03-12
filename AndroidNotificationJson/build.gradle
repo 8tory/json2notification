@@ -18,7 +18,7 @@ dependencies {
     compile 'com.fasterxml.jackson.core:jackson-annotations:2.5.1'
     apt 'com.bluelinelabs:logansquare-compiler:1.0.6'
     compile 'com.bluelinelabs:logansquare:1.0.6'
-    compile 'com.android.support:support-v4:22.0.+'
+    compile 'com.android.support:support-v4:21.0.3'
     compile 'com.infstory:proguard-annotations:1.0.0'
     compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.3'
 }
