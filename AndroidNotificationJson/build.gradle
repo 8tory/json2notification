@@ -12,17 +12,6 @@ buildscript {
 apply plugin: 'com.android.library'
 apply plugin: 'android-apt'
 
-dependencies {
-    compile 'com.fasterxml.jackson.core:jackson-core:2.5.1'
-    compile 'com.fasterxml.jackson.core:jackson-databind:2.5.1'
-    compile 'com.fasterxml.jackson.core:jackson-annotations:2.5.1'
-    apt 'com.bluelinelabs:logansquare-compiler:1.0.6'
-    compile 'com.bluelinelabs:logansquare:1.0.6'
-    compile 'com.android.support:support-v4:21.0.3'
-    compile 'com.infstory:proguard-annotations:1.0.0'
-    compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.3'
-}
-
 android {
     compileSdkVersion 21
     buildToolsVersion "21.1.2"
@@ -41,5 +30,31 @@ android {
         abortOnError false
     }
 }
+
+dependencies {
+    compile 'com.fasterxml.jackson.core:jackson-core:2.5.1'
+    compile 'com.fasterxml.jackson.core:jackson-databind:2.5.1'
+    compile 'com.fasterxml.jackson.core:jackson-annotations:2.5.1'
+    apt 'com.bluelinelabs:logansquare-compiler:1.0.6'
+    compile 'com.bluelinelabs:logansquare:1.0.6'
+    compile 'com.android.support:support-v4:21.0.3'
+    compile 'com.infstory:proguard-annotations:1.0.1'
+    compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.3'
+    // testing
+    testCompile 'junit:junit-dep:4.10'
+    testCompile 'org.mockito:mockito-core:1.8.5'
+    testCompile('org.robolectric:robolectric:2.3') {
+      exclude group: 'com.android.support'
+    }
+}
+
+/*
+test {
+    testLogging {
+        events "passed", "skipped", "failed", "standardOut", "standardError"
+    }
+    testLogging.showStandardStreams = true
+}
+*/
 
 // apply from: 'gradle-mvn-push.gradle'

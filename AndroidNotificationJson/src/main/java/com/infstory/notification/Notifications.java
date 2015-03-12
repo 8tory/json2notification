@@ -56,7 +56,7 @@ public class Notifications {
                     builder.setContentTitle(notificationModel.contentTitle);
                 }
                 if (!Utils.isEmpty(notificationModel.deleteIntent)) {
-                    builder.setDeleteIntent(notificationModel.deleteIntent);
+                    builder.setDeleteIntent(notificationModel.deleteIntent.pendingIntent);
                 }
 //                if (!Utils.isEmpty(notificationModel.color)) {
 //                    builder.setColor(notificationModel.color);
@@ -68,7 +68,7 @@ public class Notifications {
                     builder.setContentInfo(notificationModel.contentInfo);
                 }
                 if (!Utils.isEmpty(notificationModel.contentIntent)) {
-                    builder.setContentIntent(notificationModel.contentIntent);
+                    builder.setContentIntent(notificationModel.contentIntent.pendingIntent);
                 }
                 if (!Utils.isEmpty(notificationModel.contentTitle)) {
                     builder.setContentTitle(notificationModel.contentTitle);
@@ -80,7 +80,7 @@ public class Notifications {
                     builder.setDefaults(notificationModel.defaults);
                 }
                 if (!Utils.isEmpty(notificationModel.deleteIntent)) {
-                    builder.setDeleteIntent(notificationModel.deleteIntent);
+                    builder.setDeleteIntent(notificationModel.deleteIntent.pendingIntent);
                 }
                 if (!Utils.isEmpty(notificationModel.extras)) {
                     Bundle bundle = new Bundle();
@@ -179,6 +179,7 @@ public class Notifications {
         @KeepClassMembers
         @JsonObject
         public static class PendingIntentModel {
+            PendingIntent pendingIntent;
         }
 
         @Keep
