@@ -20,6 +20,7 @@ dependencies {
     compile 'com.bluelinelabs:logansquare:1.0.6'
     compile 'com.android.support:support-v4:20.0.+'
     compile 'com.infstory:proguard-annotations:1.0.0'
+    compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.3'
 }
 
 android {

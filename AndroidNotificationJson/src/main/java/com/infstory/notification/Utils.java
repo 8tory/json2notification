@@ -1,5 +1,6 @@
 package com.infstory.notification;
 
+import android.content.Context;
 import android.text.TextUtils;
 
 public class Utils {
@@ -11,5 +12,8 @@ public class Utils {
             return TextUtils.isEmpty(s);
         }
         return false;
+    }
+    public static int getDrawableId(Context context, String idString) {
+        return context.getResources().getIdentifier(idString, "drawable", context.getPackageName());
     }
 }

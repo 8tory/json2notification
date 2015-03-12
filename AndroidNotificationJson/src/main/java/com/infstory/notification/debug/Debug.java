@@ -29,7 +29,7 @@ public class Debug {
         if (isDebuggable()) Log.d(tag, msg, tr);
     }
 
-    private static boolean isDebuggable() {
+    public static boolean isDebuggable() {
         if (sContext == null) {
             return false;
         } else {
