@@ -8,6 +8,7 @@ import com.infstory.notification.debug.Debugger;
 import com.infstory.notification.model.AndroidNotificationJsonModel;
 
 import org.json.JSONObject;
+import org.json.JSONException;
 
 public class Notifications {
     private static final String TAG = "Notifications";
@@ -21,6 +22,15 @@ public class Notifications {
     private Notifications(Context context) {
         mContext = context;
         mDebugger = new Debugger(context).setTag(TAG);
+    }
+
+    public Notification build(String json) {
+        try {
+            return build(new JSONObject(json));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     public Notification build(JSONObject jsonObject) {

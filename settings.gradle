@@ -1,1 +1,2 @@
 include ':AndroidNotificationJson'
+include ':AndroidNotificationJsonSample'

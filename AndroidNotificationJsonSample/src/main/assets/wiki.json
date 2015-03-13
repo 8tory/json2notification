@@ -1,0 +1,20 @@
+{
+   "android": {
+       "notification": {
+           "contentTitle": "contentTitle",
+           "contentText": "contentText",
+           "contentInfo": "contentInfo",
+           "largeIcon": "http://upload.wikimedia.org/wikipedia/en/b/bc/Wiki.png",
+           "smallIcon": "http://upload.wikimedia.org/wikipedia/en/b/bc/Wiki.png",
+           "style": {
+               "contentTitle": "contentTitle",
+               "contentText": "contentText",
+               "contentInfo": "contentInfo",
+               "summaryText": "summaryText",
+               "bigLargeIcon": "http://upload.wikimedia.org/wikipedia/en/b/bc/Wiki.png",
+               "bigPicture": "http://upload.wikimedia.org/wikipedia/en/b/bc/Wiki.png",
+           },
+           "autoCancel": true
+       }
+   }
+}
