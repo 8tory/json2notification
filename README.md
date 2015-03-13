@@ -1,9 +1,17 @@
-Converter for JSON to Android Notification and Vice Versa
-=========================================================
+# Converter for JSON to Android Notification and Vice Versa
 
-Input json format:
+## Usage
 
+```java
+import android.app.Notification;
+import com.infstory.notification.Notifications;
+
+Notification n = Notifications.from(context).build(json);
 ```
+
+### Input json format
+
+```json
 {
    "android": {
        "notification": {
@@ -66,7 +74,7 @@ Input json format:
 }
 ```
 
-```
+```text
 {
    "android": {
        "notification": {
@@ -101,8 +109,7 @@ Input json format:
 }
 ```
 
-LICENSE
-=======
+## LICENSE
 
 ```
 Copyright 2015 8tory, Inc.
