@@ -5,6 +5,7 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
+import android.media.RingtoneManager;
 
 import com.bluelinelabs.logansquare.annotation.JsonField;
 import com.bluelinelabs.logansquare.annotation.JsonObject;
@@ -111,6 +112,7 @@ public class NotificationModel implements ModelBuilder<Notification> {
         Context context  = (Context) objects[1];
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context);
+        builder.setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION));
 
         android.util.Log.d("Notifications", "Notification build");
         android.util.Log.d("Notifications", "Notification jsonObject: " + jsonObject);
