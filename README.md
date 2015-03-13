@@ -39,41 +39,6 @@ Notification n = Notifications.from(context).build(json);
 }
 ```
 
-```text
-{
-   "android": {
-       "notification": {
-           "contentTitle": "String",
-           "contentText": "String",
-           "contentInfo": "String",
-           "contentIntent": (PendingIntent{
-               "start": ("broadcarst"|"activity"|"activities"|"service"),
-               "intent": (Intent{}),
-               "flags": (int),
-               "options": (Bundle{}),
-           }),
-           "largeIcon": "String:url",
-           "smallIcon": "String:url",
-           "style": (BigPictureStyle{
-               "contentTitle": "String",
-               "contentText": "String",
-               "contentInfo": "String",
-               "summaryText": "String",
-               "bigLargeIcon": "String:url",
-               "bigPicture": "String:url",
-               "contentIntent": (PendingIntent{
-                   "start": ("broadcarst"|"activity"|"activities"|"service"),
-                   "intent": (Intent{}),
-                   "flags": (int),
-                   "options": (Bundle{}),
-               })
-           })
-           "autoCancel": (boolean)
-       }
-   }
-}
-```
-
 ## LICENSE
 
 ```
