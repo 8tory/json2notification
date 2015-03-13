@@ -23,6 +23,7 @@ import android.net.Uri;
 import com.bluelinelabs.logansquare.annotation.JsonField;
 import com.bluelinelabs.logansquare.annotation.JsonObject;
 import com.infstory.notification.Utils;
+import com.infstory.notification.debug.Debugger;
 
 import proguard.annotation.Keep;
 import proguard.annotation.KeepClassMembers;
@@ -31,6 +32,9 @@ import proguard.annotation.KeepClassMembers;
 @KeepClassMembers
 @JsonObject
 public class IntentModel implements ModelBuilder<Intent> {
+
+    private Debugger mDebugger;
+
     @JsonField
     public String action;
     @JsonField
@@ -38,15 +42,18 @@ public class IntentModel implements ModelBuilder<Intent> {
 
     @Override
     public Intent build(Object... objects) {
-        android.util.Log.d("Notifications", "Intent build ");
         Context context = (Context) objects[0];
+
+        mDebugger = new Debugger(context);
 
         Intent intent = new Intent();
 
         if (!Utils.isEmpty(action)) {
+            mDebugger.logT("action: " + action.toString());
             intent.setAction(action);
         }
         if (!Utils.isEmpty(uri)) {
+            mDebugger.logT("uri: " + uri.toString());
             intent.setData(Uri.parse(uri));
         }
 

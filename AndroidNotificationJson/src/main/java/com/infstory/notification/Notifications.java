@@ -57,17 +57,17 @@ public class Notifications {
             // There's a TypeConverter mechanism can be used, however, it cannot pass parameters.
             // I need to pass parameters for building the instance so just do this by build() method
             // in each model itself.
-            android.util.Log.d(TAG, "Notifications: run");
-            android.util.Log.d(TAG, "Notifications: jsonObject: " + jsonObject);
+            mDebugger.logT(jsonObject.toString());
             if (jsonObject.has(ANDROID)) {
                 notification = LoganSquare
-                        .parse(jsonObject.get(ANDROID).toString(), AndroidNotificationJsonModel.class)
+                        .parse(jsonObject.get(ANDROID).toString(),
+                                AndroidNotificationJsonModel.class)
                         .build(jsonObject.get(ANDROID), mContext);
+            } else {
+                mDebugger.logT("Wrong JSON format");
             }
-            android.util.Log.d(TAG, "Notifications: bye");
         } catch (Exception e) {
-            android.util.Log.d(TAG, "Exception: ", e);
-            mDebugger.logT(TAG, e);
+            mDebugger.logT(e);
         }
 
         return notification;

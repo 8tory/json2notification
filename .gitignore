@@ -29,5 +29,8 @@ proguard/
 .idea/
 *.iml
 
+# Git
+*.orig
+
 # VIM
 *.swp

@@ -13,64 +13,29 @@ Notification n = Notifications.from(context).build(json);
 
 ```json
 {
-   "android": {
-       "notification": {
-           "contentTitle": "contentTitle",
-           "contentText": "contentText",
-           "contentInfo": "contentInfo",
-           "contentIntent": {
-               "start": "activity",
-               "intent": {
-                    "action" : "android.intent.action.VIEW",
-                    "data" : {
-                        "scheme" : "http",
-                        "opaquePart" : "//wikipedia.org",
-                        "authority" : "wikipedia.org",
-                        "path" : "/wiki/Christmas",
-                        "query" : "",
-                        "fragment" : ""
-                    },
-                    "dataString" : "http://wikipedia.org/wiki/Christmas",
-                    "flags" : 0,
-                    "scheme" : "http",
-                    "excludingStopped" : false
-               },
-               "flags": 0,
-               "options": null
-           },
-           "largeIcon": "largeIcon",
-           "smallIcon": "smallIcon",
-           "style": {
-               "contentTitle": "contentTitle",
-               "contentText": "contentText",
-               "contentInfo": "contentInfo",
-               "summaryText": "summaryText",
-               "bigLargeIcon": "bigLargeIcon",
-               "bigPicture": "bigPicture",
-               "contentIntent": {
-                   "start": "activity",
-                   "intent": {
-                        "action" : "android.intent.action.VIEW",
-                        "data" : {
-                            "scheme" : "http",
-                            "opaquePart" : "//wikipedia.org",
-                            "authority" : "wikipedia.org",
-                            "path" : "/wiki/Christmas",
-                            "query" : "",
-                            "fragment" : ""
-                        },
-                        "dataString" : "http://wikipedia.org/wiki/Christmas",
-                        "flags" : 0,
-                        "scheme" : "http",
-                        "excludingStopped" : false
-                   },
-                   "flags": 0,
-                   "options": null
-               }
-           },
-           "autoCancel": true
-       }
-   }
+    "android": {
+        "notification": {
+            "contentTitle": "Sample Title",
+            "contentText": "Sample content",
+            "contentInfo": "sample info",
+            "contentIntent": {
+                "getActivity": true,
+                "intent": {
+                    "action": "android.intent.action.VIEW",
+                    "uri": "https://play.google.com/store/apps/details?id=com.story8.android.gallery"
+                }
+            },
+            "largeIcon": "http://8tory.com/images/logo.png",
+            "smallIcon": "R.drawable.ic_stat_notify_story8",
+            "bigPictureStyle": {
+                "contentTitle": "Sample Big Picture Title",
+                "summaryText": "Sample big picture text",
+                "bigLargeIcon": "http://8tory.com/images/logo.png",
+                "bigPicture": "http://8tory.com/images/logo.png"
+            },
+            "autoCancel": true
+        }
+    }
 }
 ```
 

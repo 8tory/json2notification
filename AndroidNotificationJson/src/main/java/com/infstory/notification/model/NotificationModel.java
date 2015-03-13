@@ -19,13 +19,13 @@ package com.infstory.notification.model;
 import android.app.Notification;
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.os.Bundle;
 import android.support.v4.app.NotificationCompat;
 import android.media.RingtoneManager;
 
 import com.bluelinelabs.logansquare.annotation.JsonField;
 import com.bluelinelabs.logansquare.annotation.JsonObject;
 import com.infstory.notification.Utils;
+import com.infstory.notification.debug.Debugger;
 import com.nostra13.universalimageloader.core.ImageLoader;
 
 import org.json.JSONObject;
@@ -42,6 +42,8 @@ public class NotificationModel implements ModelBuilder<Notification> {
     private static final String BIG_PICTURE_STYLE = "bigPictureStyle";
     private static final String CONTENT_INTENT = "contentIntent";
     private static final String DELETE_INTENT = "deleteIntent";
+
+    private Debugger mDebugger;
 
     @Keep
     @KeepClassMembers
@@ -127,43 +129,50 @@ public class NotificationModel implements ModelBuilder<Notification> {
         JSONObject jsonObject = (JSONObject) objects[0];
         Context context  = (Context) objects[1];
 
+        mDebugger = new Debugger(context);
+        mDebugger.logT(jsonObject.toString());
+
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context);
         builder.setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION));
 
-        android.util.Log.d("Notifications", "Notification build");
-        android.util.Log.d("Notifications", "Notification jsonObject: " + jsonObject);
         if (!Utils.isEmpty(autoCancel)) {
+            mDebugger.logT("autoCancel: " + autoCancel.toString());
             builder.setAutoCancel(autoCancel);
         }
         if (!Utils.isEmpty(category)) {
+            mDebugger.logT("category: " + category);
             builder.setCategory(category);
         }
         if (!Utils.isEmpty(contentTitle)) {
+            mDebugger.logT("contentTitle: " + contentTitle);
             builder.setContentTitle(contentTitle);
-            android.util.Log.d("Notifications", "contentTitle: " + contentTitle);
         }
         if (!Utils.isEmpty(color)) {
+            mDebugger.logT("color: " + color.toString());
             builder.setColor(color);
         }
         if (!Utils.isEmpty(contentInfo)) {
-            builder.setContentInfo(contentInfo);
-        }
-        if (!Utils.isEmpty(contentInfo)) {
+            mDebugger.logT("contentInfo: " + contentInfo);
             builder.setContentInfo(contentInfo);
         }
         if (!Utils.isEmpty(contentIntentModel)) {
+            mDebugger.logT("contentIntentModel: " + contentIntentModel.toString());
             builder.setContentIntent(contentIntentModel.build(context));
         }
         if (!Utils.isEmpty(contentTitle)) {
+            mDebugger.logT("contentTitle: " + contentTitle);
             builder.setContentTitle(contentTitle);
         }
         if (!Utils.isEmpty(contentText)) {
+            mDebugger.logT("contentText: " + contentText);
             builder.setContentText(contentText);
         }
         if (!Utils.isEmpty(defaults)) {
+            mDebugger.logT("defaults: " + defaults.toString());
             builder.setDefaults(defaults);
         }
         if (!Utils.isEmpty(deleteIntentModel)) {
+            mDebugger.logT("deleteIntentModel: " + deleteIntentModel.toString());
             builder.setDeleteIntent(deleteIntentModel.build(context));
         }
 //        if (!Utils.isEmpty(extras)) {
@@ -174,97 +183,118 @@ public class NotificationModel implements ModelBuilder<Notification> {
 //            builder.setExtras(bundle);
 //        }
         if (!Utils.isEmpty(groupKey)) {
+            mDebugger.logT("groupKey: " + groupKey);
             builder.setGroup(groupKey);
         }
         if (!Utils.isEmpty(groupSummary)) {
+            mDebugger.logT("groupSummary: " + groupSummary.toString());
             builder.setGroupSummary(groupSummary);
         }
         if (!Utils.isEmpty(largeIcon)) {
+            mDebugger.logT("largeIcon: " + largeIcon);
             try {
                 Bitmap largeIconBitmap = ImageLoader.getInstance().loadImageSync(largeIcon);
                 if (largeIconBitmap != null) builder.setLargeIcon(largeIconBitmap);
             } catch (Exception e) {
-                android.util.Log.d("Notifications", "exception: ", e);
+                mDebugger.logT(e);
             }
         }
         if (!Utils.isEmpty(localOnly)) {
+            mDebugger.logT("localOnly: " + localOnly.toString());
             builder.setLocalOnly(localOnly);
         }
         if (!Utils.isEmpty(number)) {
+            mDebugger.logT("number: " + number.toString());
             builder.setNumber(number);
         }
         if (!Utils.isEmpty(ongoing)) {
+            mDebugger.logT("ongoing: " + ongoing.toString());
             builder.setOngoing(ongoing);
         }
         if (!Utils.isEmpty(onlyAlertOnce)) {
+            mDebugger.logT("onlyAlertOnce: " + onlyAlertOnce.toString());
             builder.setOnlyAlertOnce(onlyAlertOnce);
         }
         if (!Utils.isEmpty(priority)) {
+            mDebugger.logT("priority: " + priority.toString());
             builder.setPriority(priority);
         }
 //                if (!Utils.isEmpty(showWhen)) {
 //                    builder.showWhen(showWhen);
 //                }
         if (!Utils.isEmpty(smallIcon)) {
-            android.util.Log.d("Notifications", "smallIcon: " + smallIcon);
+            mDebugger.logT("smallIcon: " + smallIcon);
             try {
                 int smallIconId = Utils.getDrawableId(context, smallIcon);
-                android.util.Log.d("Notifications", "smallIconId: " + smallIconId);
                 if (smallIconId > 0) {
                     builder.setSmallIcon(smallIconId);
                 }
             } catch (Exception e) {
-                android.util.Log.d("Notifications", "exception: ", e);
+                mDebugger.logT(e);
             }
         }
         if (!Utils.isEmpty(sortKey)) {
+            mDebugger.logT("sortKey: " + sortKey);
             builder.setSortKey(sortKey);
         }
         if (!Utils.isEmpty(subText)) {
+            mDebugger.logT("subText: " + subText);
             builder.setSubText(subText);
         }
         if (!Utils.isEmpty(tickerText)) {
+            mDebugger.logT("tickerText: " + tickerText);
             builder.setTicker(tickerText);
         }
         if (!Utils.isEmpty(usesChronometer)) {
+            mDebugger.logT("usesChronometer: " + usesChronometer.toString());
             builder.setUsesChronometer(usesChronometer);
         }
         if (!Utils.isEmpty(visibility)) {
+            mDebugger.logT("visibility: " + visibility.toString());
             builder.setVisibility(visibility);
         }
         if (!Utils.isEmpty(when)) {
+            mDebugger.logT("when: " + when.toString());
             builder.setWhen(when);
         }
 
         NotificationCompat.Style style = null;
 
         if (!Utils.isEmpty(bigPictureStyleModel)) {
-            android.util.Log.d("Notifications", "bigPictureStyleModel");
+            mDebugger.logT("bigPictureStyleModel: " + bigPictureStyleModel.toString());
             NotificationCompat.BigPictureStyle bigPictureStyle
                     = new NotificationCompat.BigPictureStyle();
             if (!Utils.isEmpty(bigPictureStyleModel.bigLargeIcon)) {
+                mDebugger.logT("bigPictureStyleModel.bigLargeIcon: "
+                        + bigPictureStyleModel.bigLargeIcon);
                 try {
                     Bitmap bigLargeIcon = ImageLoader.getInstance().loadImageSync(
                             bigPictureStyleModel.bigLargeIcon);
                     if (bigLargeIcon != null) bigPictureStyle.bigLargeIcon(bigLargeIcon);
                 } catch (Exception e) {
-                    android.util.Log.d("Notifications", "exception: ", e);
+                    mDebugger.logT(e);
                 }
             }
             if (!Utils.isEmpty(bigPictureStyleModel.bigPicture)) {
+                mDebugger.logT("bigPictureStyleModel.bigPicture: "
+                        + bigPictureStyleModel.bigPicture);
                 try {
                     Bitmap bigPicture = ImageLoader.getInstance().loadImageSync(
                             bigPictureStyleModel.bigPicture);
                     if (bigPicture != null) bigPictureStyle.bigPicture(bigPicture);
                 } catch (Exception e) {
-                    android.util.Log.d("Notifications", "exception: ", e);
+                    mDebugger.logT(e);
                 }
             }
             if (!Utils.isEmpty(bigPictureStyleModel.contentTitle)) {
+                mDebugger.logT("bigPictureStyleModel.contentTitle: "
+                        + bigPictureStyleModel.contentTitle);
                 bigPictureStyle.setBigContentTitle(
                         bigPictureStyleModel.contentTitle);
             }
             if (!Utils.isEmpty(bigPictureStyleModel.summaryText)) {
+                mDebugger.logT("bigPictureStyleModel.summaryText: "
+                        + bigPictureStyleModel.summaryText);
                 bigPictureStyle.setSummaryText(
                         bigPictureStyleModel.summaryText);
             }

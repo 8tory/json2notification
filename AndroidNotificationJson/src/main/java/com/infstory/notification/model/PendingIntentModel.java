@@ -23,6 +23,7 @@ import android.content.Intent;
 import com.bluelinelabs.logansquare.annotation.JsonField;
 import com.bluelinelabs.logansquare.annotation.JsonObject;
 import com.infstory.notification.Utils;
+import com.infstory.notification.debug.Debugger;
 
 import proguard.annotation.Keep;
 import proguard.annotation.KeepClassMembers;
@@ -32,6 +33,8 @@ import proguard.annotation.KeepClassMembers;
 @JsonObject
 public class PendingIntentModel implements ModelBuilder<PendingIntent> {
     private static final String INTENT = "intent";
+
+    private Debugger mDebugger;
 
     @JsonField
     public Integer flags;
@@ -46,29 +49,35 @@ public class PendingIntentModel implements ModelBuilder<PendingIntent> {
 
     @Override
     public PendingIntent build(Object... objects) {
-        android.util.Log.d("Notifications", "PendingIntent build ");
         Context context = (Context) objects[0];
+
+        mDebugger = new Debugger(context);
 
         PendingIntent pendingIntent = null;
         Intent intent = null;
 
-        if (!Utils.isEmpty(intentModel)) intent = intentModel.build(context);
-
-        if (Utils.isEmpty(intent)) return pendingIntent;
-
-        if (flags == null || flags == 0) {
-            flags = PendingIntent.FLAG_UPDATE_CURRENT;
+        if (!Utils.isEmpty(intentModel)) {
+            mDebugger.logT("intentModel: " + intentModel.toString());
+            intent = intentModel.build(context);
         }
-        if (requestCode == null) {
+
+        if (Utils.isEmpty(requestCode)) {
             requestCode = 0;
         }
-        if (!Utils.isEmpty(getActivity)) {
-            pendingIntent = PendingIntent.getActivity(context, requestCode, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-        } else if (!Utils.isEmpty(getService)) {
-            pendingIntent = PendingIntent.getService(context, requestCode, intent, PendingIntent.FLAG_UPDATE_CURRENT);
-        }
+        mDebugger.logT("requestCode: " + requestCode.toString());
 
-        if (Utils.isEmpty(pendingIntent)) return pendingIntent;
+        if (Utils.isEmpty(flags)) {
+            flags = PendingIntent.FLAG_UPDATE_CURRENT;
+        }
+        mDebugger.logT("flags: " + flags.toString());
+
+        if (!Utils.isEmpty(getActivity)) {
+            mDebugger.logT("getActivity: " + getActivity.toString());
+            pendingIntent = PendingIntent.getActivity(context, requestCode, intent, flags);
+        } else if (!Utils.isEmpty(getService)) {
+            mDebugger.logT("getService: " + getService.toString());
+            pendingIntent = PendingIntent.getService(context, requestCode, intent, flags);
+        }
 
         return pendingIntent;
     }

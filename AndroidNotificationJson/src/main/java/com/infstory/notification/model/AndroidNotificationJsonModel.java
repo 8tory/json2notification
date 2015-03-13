@@ -24,6 +24,7 @@ import com.bluelinelabs.logansquare.annotation.JsonObject;
 import com.bluelinelabs.logansquare.annotation.OnJsonParseComplete;
 import com.bluelinelabs.logansquare.annotation.OnPreJsonSerialize;
 import com.infstory.notification.Utils;
+import com.infstory.notification.debug.Debugger;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -36,6 +37,8 @@ import proguard.annotation.KeepClassMembers;
 @JsonObject
 public class AndroidNotificationJsonModel implements ModelBuilder<Notification> {
     private static final String NOTIFICATION = "notification";
+
+    private Debugger mDebugger;
 
     @JsonField(name = NOTIFICATION)
     public NotificationModel notificationModel;
@@ -60,9 +63,10 @@ public class AndroidNotificationJsonModel implements ModelBuilder<Notification> 
 
     @Override
     public Notification build(Object... objects) {
-        android.util.Log.d("Notifications", "1");
         JSONObject jsonObject = (JSONObject) objects[0];
         Context context = (Context) objects[1];
+
+        mDebugger = new Debugger(context);
 
         Notification notification = null;
 
@@ -74,7 +78,6 @@ public class AndroidNotificationJsonModel implements ModelBuilder<Notification> 
                 e.printStackTrace();
             }
         }
-        android.util.Log.d("Notifications", "2");
 
         return notification;
     }

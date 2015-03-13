@@ -32,13 +32,8 @@ public class Utils {
     }
 
     public static int getDrawableId(Context context, String resString) {
-        android.util.Log.d("Notifications", "resString: " + resString);
-        android.util.Log.d("Notifications", "PackageName: " + context.getPackageName());
         resString = resString.replace("R.drawable.", "");
-        return context.getResources().getIdentifier(resString, "drawable", context.getPackageName());
-    }
-
-    public static boolean isMainThread() {
-        return Looper.getMainLooper().getThread() == Thread.currentThread();
+        return context.getResources().getIdentifier(
+                resString, "drawable", context.getPackageName());
     }
 }
