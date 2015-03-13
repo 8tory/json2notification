@@ -190,7 +190,7 @@ public class NotificationModel implements ModelBuilder<Notification> {
 //                    builder.showWhen(showWhen);
 //                }
         if (!Utils.isEmpty(smallIcon)) {
-            android.util.Log.d("Notifications", "smallIcon");
+            android.util.Log.d("Notifications", "smallIcon: " + smallIcon);
             try {
                 int smallIconId = Utils.getDrawableId(context, smallIcon);
                 android.util.Log.d("Notifications", "smallIconId: " + smallIconId);

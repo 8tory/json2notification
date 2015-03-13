@@ -15,8 +15,11 @@ public class Utils {
         return false;
     }
 
-    public static int getDrawableId(Context context, String idString) {
-        return context.getResources().getIdentifier(idString, "drawable", context.getPackageName());
+    public static int getDrawableId(Context context, String resString) {
+        android.util.Log.d("Notifications", "resString: " + resString);
+        android.util.Log.d("Notifications", "PackageName: " + context.getPackageName());
+        resString = resString.replace("R.drawable.", "");
+        return context.getResources().getIdentifier(resString, "drawable", context.getPackageName());
     }
 
     public static boolean isMainThread() {
