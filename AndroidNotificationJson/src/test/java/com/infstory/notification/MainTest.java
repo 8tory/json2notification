@@ -15,6 +15,7 @@ package com.infstory.notification;
 
 import android.app.Activity;
 import android.app.Fragment;
+import android.content.Context;
 import android.support.v4.app.FragmentActivity;
 
 import org.junit.Before;
@@ -26,10 +27,16 @@ import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.annotation.Config;
 
+import android.app.Notification;
+import android.app.NotificationManager;
+
 import org.json.JSONObject;
 import org.json.JSONException;
 
 import static org.mockito.Mockito.verify;
+import static org.robolectric.Robolectric.shadowOf;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
 
 @RunWith(RobolectricTestRunner.class)
 @Config(manifest = Config.NONE)
@@ -46,65 +53,67 @@ public class MainTest {
     private JSONObject json;
 
     private String rawJson = "{" +
-                                       "\"android\": {" +
-                                           "\"notification\": {" +
-                                               "\"contentTitle\": \"contentTitle\" +" +
-                                               "\"contentText\": \"contentText\" +" +
-                                               "\"contentInfo\": \"contentInfo\" +" +
+                                   "\"android\": {" +
+                                       "\"notification\": {" +
+                                           "\"contentTitle\": \"contentTitle\"," +
+                                           "\"contentText\": \"contentText\"," +
+                                           "\"contentInfo\": \"contentInfo\"," +
+                                           "\"contentIntent\": {" +
+                                               "\"start\": \"activity\"," +
+                                               "\"intent\": {" +
+                                                    "\"action\" : \"android.intent.action.VIEW\"," +
+                                                    "\"data\" : {" +
+                                                        "\"scheme\" : \"http\"," +
+                                                        "\"opaquePart\" : \"//wikipedia.org\"," +
+                                                        "\"authority\" : \"wikipedia.org\"," +
+                                                        "\"path\" : \"/wiki/Christmas\"," +
+                                                        "\"query\" : \"\"," +
+                                                        "\"fragment\" : \"\"" +
+                                                    "}," +
+                                                    "\"dataString\" : \"http://wikipedia.org/wiki/Christmas\"," +
+                                                    "\"flags\" : 0," +
+                                                    "\"scheme\" : \"http\"," +
+                                                    "\"excludingStopped\" : false" +
+                                               "}," +
+                                               "\"flags\": 0," +
+                                               "\"options\": null" +
+                                           "}," +
+                                           "\"largeIcon\": \"largeIcon\"," +
+                                           "\"smallIcon\": \"smallIcon\"," +
+                                           "\"style\": {" +
+                                               "\"contentTitle\": \"contentTitle\"," +
+                                               "\"contentText\": \"contentText\"," +
+                                               "\"contentInfo\": \"contentInfo\"," +
+                                               "\"summaryText\": \"summaryText\"," +
+                                               "\"bigLargeIcon\": \"bigLargeIcon\"," +
+                                               "\"bigPicture\": \"bigPicture\"," +
                                                "\"contentIntent\": {" +
-                                                   "\"start\": \"activity\" +" +
+                                                   "\"start\": \"activity\"," +
                                                    "\"intent\": {" +
-                                                        "\"action\" : \"android.intent.action.VIEW\" +" +
+                                                        "\"action\" : \"android.intent.action.VIEW\"," +
                                                         "\"data\" : {" +
-                                                            "\"scheme\" : \"http\" +" +
-                                                            "\"opaquePart\" : \"//wikipedia.org\" +" +
-                                                            "\"authority\" : \"wikipedia.org\" +" +
-                                                            "\"path\" : \"/wiki/Christmas\" +" +
-                                                            "\"query\" : \"\" +" +
+                                                            "\"scheme\" : \"http\"," +
+                                                            "\"opaquePart\" : \"//wikipedia.org\"," +
+                                                            "\"authority\" : \"wikipedia.org\"," +
+                                                            "\"path\" : \"/wiki/Christmas\"," +
+                                                            "\"query\" : \"\"," +
                                                             "\"fragment\" : \"\"" +
-                                                        "} +" +
-                                                        "\"dataString\" : \"http://wikipedia.org/wiki/Christmas\" +" +
-                                                        "\"flags\" : 0 +" +
-                                                        "\"scheme\" : \"http\" +" +
+                                                        "}," +
+                                                        "\"dataString\" : \"http://wikipedia.org/wiki/Christmas\"," +
+                                                        "\"flags\" : 0," +
+                                                        "\"scheme\" : \"http\"," +
                                                         "\"excludingStopped\" : false" +
-                                                   "} +" +
-                                                   "\"flags\": 0 +" +
+                                                   "}," +
+                                                   "\"flags\": 0," +
                                                    "\"options\": null" +
-                                               "} +" +
-                                               "\"largeIcon\": \"largeIcon\" +" +
-                                               "\"smallIcon\": \"smallIcon\" +" +
-                                               "\"style\": {" +
-                                                   "\"contentTitle\": \"contentTitle\" +" +
-                                                   "\"contentText\": \"contentText\" +" +
-                                                   "\"contentInfo\": \"contentInfo\" +" +
-                                                   "\"summaryText\": \"summaryText\" +" +
-                                                   "\"bigLargeIcon\": \"bigLargeIcon\" +" +
-                                                   "\"bigPicture\": \"bigPicture\" +" +
-                                                   "\"contentIntent\": {" +
-                                                       "\"start\": \"activity\" +" +
-                                                       "\"intent\": {" +
-                                                            "\"action\" : \"android.intent.action.VIEW\" +" +
-                                                            "\"data\" : {" +
-                                                                "\"scheme\" : \"http\" +" +
-                                                                "\"opaquePart\" : \"//wikipedia.org\" +" +
-                                                                "\"authority\" : \"wikipedia.org\" +" +
-                                                                "\"path\" : \"/wiki/Christmas\" +" +
-                                                                "\"query\" : \"\" +" +
-                                                                "\"fragment\" : \"\"" +
-                                                            "} +" +
-                                                            "\"dataString\" : \"http://wikipedia.org/wiki/Christmas\" +" +
-                                                            "\"flags\" : 0 +" +
-                                                            "\"scheme\" : \"http\" +" +
-                                                            "\"excludingStopped\" : false" +
-                                                       "} +" +
-                                                       "\"flags\": 0 +" +
-                                                       "\"options\": null" +
-                                                   "}" +
-                                               "} +" +
-                                               "\"autoCancel\": true" +
-                                           "}" +
+                                               "}" +
+                                           "}," +
+                                           "\"autoCancel\": true" +
                                        "}" +
-                                    "}";
+                                   "}" +
+                                "}";
+
+    NotificationManager notificationManager;
 
     @Before
     public void setup() {
@@ -116,9 +125,18 @@ public class MainTest {
         fragment = new Fragment();
         activity = Robolectric.buildActivity(Activity.class).create().get();
         activity.getFragmentManager().beginTransaction().add(fragment, null).commit();
+
+        NotificationManager notificationManager = (NotificationManager) Robolectric.application.getSystemService(Context.NOTIFICATION_SERVICE);
     }
 
     @Test
-    public void itToString() {
+    public void parse() {
+        try {
+            Notification n = Notifications.from(activity, new JSONObject(rawJson));
+            notificationManager.notify(1, n);
+            assertNull(n);
+        } catch (JSONException e) {
+        }
+        //assertNull(shadowOf(notificationManager).getNotification(1));
     }
 }
