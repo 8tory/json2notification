@@ -45,6 +45,67 @@ public class MainTest {
     @Mock
     private JSONObject json;
 
+    private String rawJson = "{" +
+                                       "\"android\": {" +
+                                           "\"notification\": {" +
+                                               "\"contentTitle\": \"contentTitle\" +" +
+                                               "\"contentText\": \"contentText\" +" +
+                                               "\"contentInfo\": \"contentInfo\" +" +
+                                               "\"contentIntent\": {" +
+                                                   "\"start\": \"activity\" +" +
+                                                   "\"intent\": {" +
+                                                        "\"action\" : \"android.intent.action.VIEW\" +" +
+                                                        "\"data\" : {" +
+                                                            "\"scheme\" : \"http\" +" +
+                                                            "\"opaquePart\" : \"//wikipedia.org\" +" +
+                                                            "\"authority\" : \"wikipedia.org\" +" +
+                                                            "\"path\" : \"/wiki/Christmas\" +" +
+                                                            "\"query\" : \"\" +" +
+                                                            "\"fragment\" : \"\"" +
+                                                        "} +" +
+                                                        "\"dataString\" : \"http://wikipedia.org/wiki/Christmas\" +" +
+                                                        "\"flags\" : 0 +" +
+                                                        "\"scheme\" : \"http\" +" +
+                                                        "\"excludingStopped\" : false" +
+                                                   "} +" +
+                                                   "\"flags\": 0 +" +
+                                                   "\"options\": null" +
+                                               "} +" +
+                                               "\"largeIcon\": \"largeIcon\" +" +
+                                               "\"smallIcon\": \"smallIcon\" +" +
+                                               "\"style\": {" +
+                                                   "\"contentTitle\": \"contentTitle\" +" +
+                                                   "\"contentText\": \"contentText\" +" +
+                                                   "\"contentInfo\": \"contentInfo\" +" +
+                                                   "\"summaryText\": \"summaryText\" +" +
+                                                   "\"bigLargeIcon\": \"bigLargeIcon\" +" +
+                                                   "\"bigPicture\": \"bigPicture\" +" +
+                                                   "\"contentIntent\": {" +
+                                                       "\"start\": \"activity\" +" +
+                                                       "\"intent\": {" +
+                                                            "\"action\" : \"android.intent.action.VIEW\" +" +
+                                                            "\"data\" : {" +
+                                                                "\"scheme\" : \"http\" +" +
+                                                                "\"opaquePart\" : \"//wikipedia.org\" +" +
+                                                                "\"authority\" : \"wikipedia.org\" +" +
+                                                                "\"path\" : \"/wiki/Christmas\" +" +
+                                                                "\"query\" : \"\" +" +
+                                                                "\"fragment\" : \"\"" +
+                                                            "} +" +
+                                                            "\"dataString\" : \"http://wikipedia.org/wiki/Christmas\" +" +
+                                                            "\"flags\" : 0 +" +
+                                                            "\"scheme\" : \"http\" +" +
+                                                            "\"excludingStopped\" : false" +
+                                                       "} +" +
+                                                       "\"flags\": 0 +" +
+                                                       "\"options\": null" +
+                                                   "}" +
+                                               "} +" +
+                                               "\"autoCancel\": true" +
+                                           "}" +
+                                       "}" +
+                                    "}";
+
     @Before
     public void setup() {
         MockitoAnnotations.initMocks(this);
@@ -59,10 +120,5 @@ public class MainTest {
 
     @Test
     public void itToString() {
-        try {
-            json.put("name", "android");
-            verify(json).put("name", "android");
-        } catch (JSONException e) {
-        }
     }
 }
