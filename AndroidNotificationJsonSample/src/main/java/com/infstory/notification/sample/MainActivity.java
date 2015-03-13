@@ -16,6 +16,7 @@
 
 package com.infstory.notification.sample;
 
+import android.app.Activity;
 import android.app.AlertDialog;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -40,16 +41,22 @@ import org.json.JSONException;
 
 
 public class MainActivity extends ActionBarActivity {
+    NotificationManager notificationManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        NotificationManager notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-
+        notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         String wikiJson = readFile("wiki.json");
-        Notification n = Notifications.from(this).build(wikiJson);
-        notificationManager.notify(1, n);
+        new AsyncTask<String, Void, Void>() {
+            @Override public Void doInBackground(String... jsons) {
+                Notification n = Notifications.from(MainActivity.this).build(jsons[0]);
+                notificationManager.notify(1, n);
+                return null;
+            }
+        }.execute(wikiJson);
     }
 
     private String readFile(String filename) {

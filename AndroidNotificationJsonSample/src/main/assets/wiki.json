@@ -5,7 +5,7 @@
            "contentText": "contentText",
            "contentInfo": "contentInfo",
            "largeIcon": "http://upload.wikimedia.org/wikipedia/en/b/bc/Wiki.png",
-           "smallIcon": "R.drawable.ic_launcher.png",
+           "smallIcon": "R.drawable.ic_launcher",
            "style": {
                "contentTitle": "contentTitle",
                "contentText": "contentText",
