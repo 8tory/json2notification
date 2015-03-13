@@ -136,6 +136,7 @@ public class MainTest {
             notificationManager.notify(1, n);
             assertNull(n);
         } catch (JSONException e) {
+            System.out.println(e);
         }
         //assertNull(shadowOf(notificationManager).getNotification(1));
     }
