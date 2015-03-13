@@ -4,13 +4,27 @@
            "contentTitle": "contentTitle",
            "contentText": "contentText",
            "contentInfo": "contentInfo",
+           "contentIntent": {
+               "getActivity": true,
+               "intent": {
+                    "action" : "android.intent.action.VIEW",
+                    "uri" : "http://wikimedia.org/"
+               }
+           },
            "largeIcon": "http://upload.wikimedia.org/wikipedia/en/b/bc/Wiki.png",
            "smallIcon": "R.drawable.ic_launcher",
-           "style": {
+           "BigPictureStyle": {
                "contentTitle": "contentTitle",
                "contentText": "contentText",
                "contentInfo": "contentInfo",
                "summaryText": "summaryText",
+               "contentIntent": {
+                   "getActivity": true,
+                   "intent": {
+                        "action" : "android.intent.action.VIEW",
+                        "uri" : "http://wikimedia.org/"
+                   }
+               },
                "bigLargeIcon": "http://upload.wikimedia.org/wikipedia/en/b/bc/Wiki.png",
                "bigPicture": "http://upload.wikimedia.org/wikipedia/en/b/bc/Wiki.png"
            },
