@@ -1,8 +1,9 @@
 Converter for JSON to Android Notification and Vice Versa
 =========================================================
 
+Input json format:
 
-```json
+```
 {
    "android": {
        "notification": {
