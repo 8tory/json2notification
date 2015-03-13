@@ -13,18 +13,11 @@
                     "uri" : "http://wikimedia.org/"
                }
            },
-           "BigPictureStyle": {
+           "bigPictureStyle": {
                "contentTitle": "contentTitle",
                "summaryText": "summaryText",
                "bigLargeIcon": "http://upload.wikimedia.org/wikipedia/en/b/bc/Wiki.png",
-               "bigPicture": "http://upload.wikimedia.org/wikipedia/en/b/bc/Wiki.png",
-               "contentIntent": {
-                   "getActivity": true,
-                   "intent": {
-                        "action" : "android.intent.action.VIEW",
-                        "uri" : "http://wikimedia.org/"
-                   }
-               }
+               "bigPicture": "http://upload.wikimedia.org/wikipedia/en/b/bc/Wiki.png"
            },
            "autoCancel": true
        }
