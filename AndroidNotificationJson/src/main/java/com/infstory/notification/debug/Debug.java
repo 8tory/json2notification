@@ -37,7 +37,7 @@ public class Debug {
                 sIsDebuggable = (0 != (sContext.getApplicationInfo().flags
                         &= ApplicationInfo.FLAG_DEBUGGABLE));
             }
-            return sIsDebuggable.booleanValue();
+            return sIsDebuggable;
         }
     }
 }
