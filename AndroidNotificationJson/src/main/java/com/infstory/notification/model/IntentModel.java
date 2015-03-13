@@ -22,6 +22,7 @@ public class IntentModel implements ModelBuilder<Intent> {
 
     @Override
     public Intent build(Object... objects) {
+        android.util.Log.d("Notifications", "Intent build ");
         Context context = (Context) objects[0];
 
         Intent intent = new Intent();

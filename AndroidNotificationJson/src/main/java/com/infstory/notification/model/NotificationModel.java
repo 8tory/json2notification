@@ -112,6 +112,8 @@ public class NotificationModel implements ModelBuilder<Notification> {
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context);
 
+        android.util.Log.d("Notifications", "Notification build");
+        android.util.Log.d("Notifications", "Notification jsonObject: " + jsonObject);
         if (!Utils.isEmpty(autoCancel)) {
             builder.setAutoCancel(autoCancel);
         }
@@ -120,6 +122,7 @@ public class NotificationModel implements ModelBuilder<Notification> {
         }
         if (!Utils.isEmpty(contentTitle)) {
             builder.setContentTitle(contentTitle);
+            android.util.Log.d("Notifications", "contentTitle: " + contentTitle);
         }
         if (!Utils.isEmpty(color)) {
             builder.setColor(color);
@@ -159,8 +162,12 @@ public class NotificationModel implements ModelBuilder<Notification> {
             builder.setGroupSummary(groupSummary);
         }
         if (!Utils.isEmpty(largeIcon)) {
-            Bitmap largeIconBitmap = ImageLoader.getInstance().loadImageSync(largeIcon);
-            if (largeIconBitmap != null) builder.setLargeIcon(largeIconBitmap);
+            try {
+                Bitmap largeIconBitmap = ImageLoader.getInstance().loadImageSync(largeIcon);
+                if (largeIconBitmap != null) builder.setLargeIcon(largeIconBitmap);
+            } catch (Exception e) {
+                android.util.Log.d("Notifications", "exception: ", e);
+            }
         }
         if (!Utils.isEmpty(localOnly)) {
             builder.setLocalOnly(localOnly);
@@ -181,9 +188,13 @@ public class NotificationModel implements ModelBuilder<Notification> {
 //                    builder.showWhen(showWhen);
 //                }
         if (!Utils.isEmpty(smallIcon)) {
-            Bitmap smallIconBitmap = ImageLoader.getInstance().loadImageSync(smallIcon);
-            if (smallIconBitmap != null) builder.setSmallIcon(Utils.getDrawableId(
-                    context, smallIcon));
+            try {
+                Bitmap smallIconBitmap = ImageLoader.getInstance().loadImageSync(smallIcon);
+                if (smallIconBitmap != null) builder.setSmallIcon(Utils.getDrawableId(
+                        context, smallIcon));
+            } catch (Exception e) {
+                android.util.Log.d("Notifications", "exception: ", e);
+            }
         }
         if (!Utils.isEmpty(sortKey)) {
             builder.setSortKey(sortKey);
@@ -207,17 +218,26 @@ public class NotificationModel implements ModelBuilder<Notification> {
         NotificationCompat.Style style = null;
 
         if (!Utils.isEmpty(bigPictureStyleModel)) {
+            android.util.Log.d("Notifications", "bigPictureStyleModel");
             NotificationCompat.BigPictureStyle bigPictureStyle
                     = new NotificationCompat.BigPictureStyle();
             if (!Utils.isEmpty(bigPictureStyleModel.bigLargeIcon)) {
-                Bitmap bigLargeIcon = ImageLoader.getInstance().loadImageSync(
-                        bigPictureStyleModel.bigLargeIcon);
-                if (bigLargeIcon != null) bigPictureStyle.bigLargeIcon(bigLargeIcon);
+                try {
+                    Bitmap bigLargeIcon = ImageLoader.getInstance().loadImageSync(
+                            bigPictureStyleModel.bigLargeIcon);
+                    if (bigLargeIcon != null) bigPictureStyle.bigLargeIcon(bigLargeIcon);
+                } catch (Exception e) {
+                    android.util.Log.d("Notifications", "exception: ", e);
+                }
             }
             if (!Utils.isEmpty(bigPictureStyleModel.bigPicture)) {
-                Bitmap bigPicture = ImageLoader.getInstance().loadImageSync(
-                        bigPictureStyleModel.bigPicture);
-                if (bigPicture != null) bigPictureStyle.bigPicture(bigPicture);
+                try {
+                    Bitmap bigPicture = ImageLoader.getInstance().loadImageSync(
+                            bigPictureStyleModel.bigPicture);
+                    if (bigPicture != null) bigPictureStyle.bigPicture(bigPicture);
+                } catch (Exception e) {
+                    android.util.Log.d("Notifications", "exception: ", e);
+                }
             }
             if (!Utils.isEmpty(bigPictureStyleModel.contentTitle)) {
                 bigPictureStyle.setBigContentTitle(

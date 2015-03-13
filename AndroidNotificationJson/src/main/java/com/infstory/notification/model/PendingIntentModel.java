@@ -30,6 +30,7 @@ public class PendingIntentModel implements ModelBuilder<PendingIntent> {
 
     @Override
     public PendingIntent build(Object... objects) {
+        android.util.Log.d("Notifications", "PendingIntent build ");
         Context context = (Context) objects[0];
 
         PendingIntent pendingIntent = null;
@@ -39,9 +40,9 @@ public class PendingIntentModel implements ModelBuilder<PendingIntent> {
 
         if (Utils.isEmpty(intent)) return pendingIntent;
 
-        if (getActivity) {
+        if (!Utils.isEmpty(getActivity)) {
             pendingIntent = PendingIntent.getActivity(context, requestCode, intent, flags);
-        } else if (getService) {
+        } else if (!Utils.isEmpty(getService)) {
             pendingIntent = PendingIntent.getService(context, requestCode, intent, flags);
         }
 

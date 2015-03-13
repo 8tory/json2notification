@@ -44,6 +44,7 @@ public class AndroidNotificationJsonModel implements ModelBuilder<Notification> 
 
     @Override
     public Notification build(Object... objects) {
+        android.util.Log.d("Notifications", "1");
         JSONObject jsonObject = (JSONObject) objects[0];
         Context context = (Context) objects[1];
 
@@ -57,6 +58,7 @@ public class AndroidNotificationJsonModel implements ModelBuilder<Notification> 
                 e.printStackTrace();
             }
         }
+        android.util.Log.d("Notifications", "2");
 
         return notification;
     }

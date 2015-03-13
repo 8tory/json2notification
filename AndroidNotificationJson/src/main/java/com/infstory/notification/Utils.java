@@ -1,6 +1,7 @@
 package com.infstory.notification;
 
 import android.content.Context;
+import android.os.Looper;
 import android.text.TextUtils;
 
 public class Utils {
@@ -13,7 +14,12 @@ public class Utils {
         }
         return false;
     }
+
     public static int getDrawableId(Context context, String idString) {
         return context.getResources().getIdentifier(idString, "drawable", context.getPackageName());
+    }
+
+    public static boolean isMainThread() {
+        return Looper.getMainLooper().getThread() == Thread.currentThread();
     }
 }
