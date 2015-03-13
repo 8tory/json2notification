@@ -56,10 +56,16 @@ public class PendingIntentModel implements ModelBuilder<PendingIntent> {
 
         if (Utils.isEmpty(intent)) return pendingIntent;
 
+        if (flags == null || flags == 0) {
+            flags = PendingIntent.FLAG_UPDATE_CURRENT;
+        }
+        if (requestCode == null) {
+            requestCode = 0;
+        }
         if (!Utils.isEmpty(getActivity)) {
-            pendingIntent = PendingIntent.getActivity(context, requestCode, intent, flags);
+            pendingIntent = PendingIntent.getActivity(context, requestCode, intent, PendingIntent.FLAG_UPDATE_CURRENT);
         } else if (!Utils.isEmpty(getService)) {
-            pendingIntent = PendingIntent.getService(context, requestCode, intent, flags);
+            pendingIntent = PendingIntent.getService(context, requestCode, intent, PendingIntent.FLAG_UPDATE_CURRENT);
         }
 
         if (Utils.isEmpty(pendingIntent)) return pendingIntent;
