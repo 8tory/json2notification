@@ -188,10 +188,13 @@ public class NotificationModel implements ModelBuilder<Notification> {
 //                    builder.showWhen(showWhen);
 //                }
         if (!Utils.isEmpty(smallIcon)) {
+            android.util.Log.d("Notifications", "smallIcon");
             try {
-                Bitmap smallIconBitmap = ImageLoader.getInstance().loadImageSync(smallIcon);
-                if (smallIconBitmap != null) builder.setSmallIcon(Utils.getDrawableId(
-                        context, smallIcon));
+                int smallIconId = Utils.getDrawableId(context, smallIcon);
+                android.util.Log.d("Notifications", "smallIconId: " + smallIconId);
+                if (smallIconId > 0) {
+                    builder.setSmallIcon(smallIconId);
+                }
             } catch (Exception e) {
                 android.util.Log.d("Notifications", "exception: ", e);
             }

@@ -34,37 +34,26 @@ public class Notifications {
         return null;
     }
 
-    public void build(final JSONObject jsonObject, final OnBuiltListener onBuiltListener) {
+    public Notification build(JSONObject jsonObject) {
+        Notification notification = null;
 
-        Thread job = new Thread(new Runnable() {
-            @Override
-            public void run() {
-                Notification notification = null;
-
-                try {
-                    // There's a TypeConverter mechanism can be used, however, it cannot pass parameters.
-                    // I need to pass parameters for building the instance so just do this by build() method
-                    // in each model itself.
-                    android.util.Log.d(TAG, "Notifications: run");
-                    android.util.Log.d(TAG, "Notifications: jsonObject: " + jsonObject);
-                    if (jsonObject.has(ANDROID)) {
-                        notification = LoganSquare
-                            .parse(jsonObject.get(ANDROID).toString(), AndroidNotificationJsonModel.class)
-                            .build(jsonObject.get(ANDROID), mContext);
-                    }
-                    android.util.Log.d(TAG, "Notifications: bye");
-                } catch (Exception e) {
-                    android.util.Log.d(TAG, "Exception: ", e);
-                    mDebugger.logT(TAG, e);
-                }
-
-                onBuiltListener.onDone(notification);
+        try {
+            // There's a TypeConverter mechanism can be used, however, it cannot pass parameters.
+            // I need to pass parameters for building the instance so just do this by build() method
+            // in each model itself.
+            android.util.Log.d(TAG, "Notifications: run");
+            android.util.Log.d(TAG, "Notifications: jsonObject: " + jsonObject);
+            if (jsonObject.has(ANDROID)) {
+                notification = LoganSquare
+                        .parse(jsonObject.get(ANDROID).toString(), AndroidNotificationJsonModel.class)
+                        .build(jsonObject.get(ANDROID), mContext);
             }
-        });
-        job.start();
-    }
+            android.util.Log.d(TAG, "Notifications: bye");
+        } catch (Exception e) {
+            android.util.Log.d(TAG, "Exception: ", e);
+            mDebugger.logT(TAG, e);
+        }
 
-    public interface OnBuiltListener {
-        public void onDone(Notification notification);
+        return notification;
     }
 }
