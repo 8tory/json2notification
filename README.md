@@ -1,6 +1,10 @@
-# Converter for JSON to Android Notification and Vice Versa
+# Convert JSON to Android Notification
+
+This is very useful for push notification (GCM).
 
 ## Usage
+
+### Sample code
 
 ```java
 import android.app.Notification;
@@ -9,7 +13,7 @@ import com.infstory.notification.Notifications;
 Notification n = Notifications.from(context).build(json);
 ```
 
-### Input json format
+#### Input json format
 
 ```json
 {
