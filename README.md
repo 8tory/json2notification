@@ -19,8 +19,13 @@ Notification n = Notifications.from(context).build(json);
 {
     "android": {
         "notification": {
-            "contentTitle": "Sample Title",
-            "contentText": "Sample content",
+            "autoCancel": true,
+            "bigPictureStyle": {
+                "contentTitle": "Sample Big Picture Title",
+                "summaryText": "Sample big picture text",
+                "bigLargeIcon": "http://8tory.com/images/logo.png",
+                "bigPicture": "http://8tory.com/images/logo.png"
+            },
             "contentInfo": "sample info",
             "contentIntent": {
                 "getActivity": true,
@@ -29,15 +34,11 @@ Notification n = Notifications.from(context).build(json);
                     "uri": "https://play.google.com/store/apps/details?id=com.story8.android.gallery"
                 }
             },
+            "contentText": "Sample content",
+            "contentTitle": "Sample Title",
             "largeIcon": "http://8tory.com/images/logo.png",
             "smallIcon": "R.drawable.ic_stat_notify_story8",
-            "bigPictureStyle": {
-                "contentTitle": "Sample Big Picture Title",
-                "summaryText": "Sample big picture text",
-                "bigLargeIcon": "http://8tory.com/images/logo.png",
-                "bigPicture": "http://8tory.com/images/logo.png"
-            },
-            "autoCancel": true
+            "sound": "content://settings/system/notification_sound"
         }
     }
 }
