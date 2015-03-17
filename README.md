@@ -36,6 +36,13 @@ Notification n = Notifications.from(context).build(json);
             },
             "contentText": "Sample content",
             "contentTitle": "Sample Title",
+            "deleteIntent": {
+                "getActivity": true,
+                "intent": {
+                    "action": "android.intent.action.VIEW",
+                    "uri": "https://play.google.com/store/apps/details?id=com.story8.android.gallery"
+                }
+            },
             "largeIcon": "http://8tory.com/images/logo.png",
             "smallIcon": "R.drawable.ic_stat_notify_story8",
             "sound": "content://settings/system/notification_sound"
