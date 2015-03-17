@@ -38,7 +38,7 @@ public class IntentModel implements ModelBuilder<Intent> {
     @JsonField
     public String action;
     @JsonField
-    public String uri;
+    public Uri uri;
 
     @Override
     public Intent build(Object... objects) {
@@ -49,12 +49,12 @@ public class IntentModel implements ModelBuilder<Intent> {
         Intent intent = new Intent();
 
         if (!Utils.isEmpty(action)) {
-            mDebugger.logT("action: " + action.toString());
+            mDebugger.log("action: " + action);
             intent.setAction(action);
         }
         if (!Utils.isEmpty(uri)) {
-            mDebugger.logT("uri: " + uri.toString());
-            intent.setData(Uri.parse(uri));
+            mDebugger.log("uri: " + uri.toString());
+            intent.setData(uri);
         }
 
         return intent;

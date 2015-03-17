@@ -57,25 +57,27 @@ public class PendingIntentModel implements ModelBuilder<PendingIntent> {
         Intent intent = null;
 
         if (!Utils.isEmpty(intentModel)) {
-            mDebugger.logT("intentModel: " + intentModel.toString());
+            mDebugger.log("intentModel: " + intentModel.toString());
             intent = intentModel.build(context);
+        } else {
+            intent = new Intent();
         }
 
         if (Utils.isEmpty(requestCode)) {
             requestCode = 0;
         }
-        mDebugger.logT("requestCode: " + requestCode.toString());
+        mDebugger.log("requestCode: " + requestCode.toString());
 
         if (Utils.isEmpty(flags)) {
             flags = PendingIntent.FLAG_UPDATE_CURRENT;
         }
-        mDebugger.logT("flags: " + flags.toString());
+        mDebugger.log("flags: " + flags.toString());
 
         if (!Utils.isEmpty(getActivity)) {
-            mDebugger.logT("getActivity: " + getActivity.toString());
+            mDebugger.log("getActivity: " + getActivity.toString());
             pendingIntent = PendingIntent.getActivity(context, requestCode, intent, flags);
         } else if (!Utils.isEmpty(getService)) {
-            mDebugger.logT("getService: " + getService.toString());
+            mDebugger.log("getService: " + getService.toString());
             pendingIntent = PendingIntent.getService(context, requestCode, intent, flags);
         }
 

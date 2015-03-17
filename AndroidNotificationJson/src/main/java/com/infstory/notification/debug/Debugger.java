@@ -35,23 +35,23 @@ public class Debugger {
         return this;
     }
 
-    public void logT(String msg) {
-        logT(mTag, msg);
+    public void log(String msg) {
+        log(mTag, msg);
     }
 
-    public void logT(String tag, String msg) {
+    public void log(String tag, String msg) {
         if (mIsDebuggable) Log.d(tag, msg);
     }
 
-    public void logT(Throwable tr) {
-        logT("", tr);
+    public void log(Throwable tr) {
+        log("", tr);
     }
 
-    public void logT(String msg, Throwable tr) {
-        logT(mTag, "", tr);
+    public void log(String msg, Throwable tr) {
+        log(mTag, "", tr);
     }
 
-    public void logT(String tag, String msg, Throwable tr) {
+    public void log(String tag, String msg, Throwable tr) {
         if (mIsDebuggable) Log.d(tag, msg, tr);
     }
 

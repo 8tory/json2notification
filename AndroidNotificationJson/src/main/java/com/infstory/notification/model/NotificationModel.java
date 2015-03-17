@@ -19,8 +19,8 @@ package com.infstory.notification.model;
 import android.app.Notification;
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.support.v4.app.NotificationCompat;
-import android.media.RingtoneManager;
 
 import com.bluelinelabs.logansquare.annotation.JsonField;
 import com.bluelinelabs.logansquare.annotation.JsonObject;
@@ -111,8 +111,8 @@ public class NotificationModel implements ModelBuilder<Notification> {
     public String smallIcon;
     @JsonField
     public String sortKey;
-//    @JsonField
-//    public Sound sound;
+    @JsonField
+    public Uri sound;
     @JsonField
     public String subText;
     @JsonField
@@ -130,49 +130,48 @@ public class NotificationModel implements ModelBuilder<Notification> {
         Context context  = (Context) objects[1];
 
         mDebugger = new Debugger(context);
-        mDebugger.logT(jsonObject.toString());
+        mDebugger.log(jsonObject.toString());
 
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context);
-        builder.setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION));
 
         if (!Utils.isEmpty(autoCancel)) {
-            mDebugger.logT("autoCancel: " + autoCancel.toString());
+            mDebugger.log("autoCancel: " + autoCancel.toString());
             builder.setAutoCancel(autoCancel);
         }
         if (!Utils.isEmpty(category)) {
-            mDebugger.logT("category: " + category);
+            mDebugger.log("category: " + category);
             builder.setCategory(category);
         }
         if (!Utils.isEmpty(contentTitle)) {
-            mDebugger.logT("contentTitle: " + contentTitle);
+            mDebugger.log("contentTitle: " + contentTitle);
             builder.setContentTitle(contentTitle);
         }
         if (!Utils.isEmpty(color)) {
-            mDebugger.logT("color: " + color.toString());
+            mDebugger.log("color: " + color.toString());
             builder.setColor(color);
         }
         if (!Utils.isEmpty(contentInfo)) {
-            mDebugger.logT("contentInfo: " + contentInfo);
+            mDebugger.log("contentInfo: " + contentInfo);
             builder.setContentInfo(contentInfo);
         }
         if (!Utils.isEmpty(contentIntentModel)) {
-            mDebugger.logT("contentIntentModel: " + contentIntentModel.toString());
+            mDebugger.log("contentIntentModel: " + contentIntentModel.toString());
             builder.setContentIntent(contentIntentModel.build(context));
         }
         if (!Utils.isEmpty(contentTitle)) {
-            mDebugger.logT("contentTitle: " + contentTitle);
+            mDebugger.log("contentTitle: " + contentTitle);
             builder.setContentTitle(contentTitle);
         }
         if (!Utils.isEmpty(contentText)) {
-            mDebugger.logT("contentText: " + contentText);
+            mDebugger.log("contentText: " + contentText);
             builder.setContentText(contentText);
         }
         if (!Utils.isEmpty(defaults)) {
-            mDebugger.logT("defaults: " + defaults.toString());
+            mDebugger.log("defaults: " + defaults.toString());
             builder.setDefaults(defaults);
         }
         if (!Utils.isEmpty(deleteIntentModel)) {
-            mDebugger.logT("deleteIntentModel: " + deleteIntentModel.toString());
+            mDebugger.log("deleteIntentModel: " + deleteIntentModel.toString());
             builder.setDeleteIntent(deleteIntentModel.build(context));
         }
 //        if (!Utils.isEmpty(extras)) {
@@ -183,117 +182,121 @@ public class NotificationModel implements ModelBuilder<Notification> {
 //            builder.setExtras(bundle);
 //        }
         if (!Utils.isEmpty(groupKey)) {
-            mDebugger.logT("groupKey: " + groupKey);
+            mDebugger.log("groupKey: " + groupKey);
             builder.setGroup(groupKey);
         }
         if (!Utils.isEmpty(groupSummary)) {
-            mDebugger.logT("groupSummary: " + groupSummary.toString());
+            mDebugger.log("groupSummary: " + groupSummary.toString());
             builder.setGroupSummary(groupSummary);
         }
         if (!Utils.isEmpty(largeIcon)) {
-            mDebugger.logT("largeIcon: " + largeIcon);
+            mDebugger.log("largeIcon: " + largeIcon);
             try {
                 Bitmap largeIconBitmap = ImageLoader.getInstance().loadImageSync(largeIcon);
                 if (largeIconBitmap != null) builder.setLargeIcon(largeIconBitmap);
             } catch (Exception e) {
-                mDebugger.logT(e);
+                mDebugger.log(e);
             }
         }
         if (!Utils.isEmpty(localOnly)) {
-            mDebugger.logT("localOnly: " + localOnly.toString());
+            mDebugger.log("localOnly: " + localOnly.toString());
             builder.setLocalOnly(localOnly);
         }
         if (!Utils.isEmpty(number)) {
-            mDebugger.logT("number: " + number.toString());
+            mDebugger.log("number: " + number.toString());
             builder.setNumber(number);
         }
         if (!Utils.isEmpty(ongoing)) {
-            mDebugger.logT("ongoing: " + ongoing.toString());
+            mDebugger.log("ongoing: " + ongoing.toString());
             builder.setOngoing(ongoing);
         }
         if (!Utils.isEmpty(onlyAlertOnce)) {
-            mDebugger.logT("onlyAlertOnce: " + onlyAlertOnce.toString());
+            mDebugger.log("onlyAlertOnce: " + onlyAlertOnce.toString());
             builder.setOnlyAlertOnce(onlyAlertOnce);
         }
         if (!Utils.isEmpty(priority)) {
-            mDebugger.logT("priority: " + priority.toString());
+            mDebugger.log("priority: " + priority.toString());
             builder.setPriority(priority);
         }
 //                if (!Utils.isEmpty(showWhen)) {
 //                    builder.showWhen(showWhen);
 //                }
         if (!Utils.isEmpty(smallIcon)) {
-            mDebugger.logT("smallIcon: " + smallIcon);
+            mDebugger.log("smallIcon: " + smallIcon);
             try {
                 int smallIconId = Utils.getDrawableId(context, smallIcon);
                 if (smallIconId > 0) {
                     builder.setSmallIcon(smallIconId);
                 }
             } catch (Exception e) {
-                mDebugger.logT(e);
+                mDebugger.log(e);
             }
         }
         if (!Utils.isEmpty(sortKey)) {
-            mDebugger.logT("sortKey: " + sortKey);
+            mDebugger.log("sortKey: " + sortKey);
             builder.setSortKey(sortKey);
         }
+        if (!Utils.isEmpty(sound)) {
+            mDebugger.log("sound: " + sound.toString());
+            builder.setSound(sound);
+        }
         if (!Utils.isEmpty(subText)) {
-            mDebugger.logT("subText: " + subText);
+            mDebugger.log("subText: " + subText);
             builder.setSubText(subText);
         }
         if (!Utils.isEmpty(tickerText)) {
-            mDebugger.logT("tickerText: " + tickerText);
+            mDebugger.log("tickerText: " + tickerText);
             builder.setTicker(tickerText);
         }
         if (!Utils.isEmpty(usesChronometer)) {
-            mDebugger.logT("usesChronometer: " + usesChronometer.toString());
+            mDebugger.log("usesChronometer: " + usesChronometer.toString());
             builder.setUsesChronometer(usesChronometer);
         }
         if (!Utils.isEmpty(visibility)) {
-            mDebugger.logT("visibility: " + visibility.toString());
+            mDebugger.log("visibility: " + visibility.toString());
             builder.setVisibility(visibility);
         }
         if (!Utils.isEmpty(when)) {
-            mDebugger.logT("when: " + when.toString());
+            mDebugger.log("when: " + when.toString());
             builder.setWhen(when);
         }
 
         NotificationCompat.Style style = null;
 
         if (!Utils.isEmpty(bigPictureStyleModel)) {
-            mDebugger.logT("bigPictureStyleModel: " + bigPictureStyleModel.toString());
+            mDebugger.log("bigPictureStyleModel: " + bigPictureStyleModel.toString());
             NotificationCompat.BigPictureStyle bigPictureStyle
                     = new NotificationCompat.BigPictureStyle();
             if (!Utils.isEmpty(bigPictureStyleModel.bigLargeIcon)) {
-                mDebugger.logT("bigPictureStyleModel.bigLargeIcon: "
+                mDebugger.log("bigPictureStyleModel.bigLargeIcon: "
                         + bigPictureStyleModel.bigLargeIcon);
                 try {
                     Bitmap bigLargeIcon = ImageLoader.getInstance().loadImageSync(
                             bigPictureStyleModel.bigLargeIcon);
                     if (bigLargeIcon != null) bigPictureStyle.bigLargeIcon(bigLargeIcon);
                 } catch (Exception e) {
-                    mDebugger.logT(e);
+                    mDebugger.log(e);
                 }
             }
             if (!Utils.isEmpty(bigPictureStyleModel.bigPicture)) {
-                mDebugger.logT("bigPictureStyleModel.bigPicture: "
+                mDebugger.log("bigPictureStyleModel.bigPicture: "
                         + bigPictureStyleModel.bigPicture);
                 try {
                     Bitmap bigPicture = ImageLoader.getInstance().loadImageSync(
                             bigPictureStyleModel.bigPicture);
                     if (bigPicture != null) bigPictureStyle.bigPicture(bigPicture);
                 } catch (Exception e) {
-                    mDebugger.logT(e);
+                    mDebugger.log(e);
                 }
             }
             if (!Utils.isEmpty(bigPictureStyleModel.contentTitle)) {
-                mDebugger.logT("bigPictureStyleModel.contentTitle: "
+                mDebugger.log("bigPictureStyleModel.contentTitle: "
                         + bigPictureStyleModel.contentTitle);
                 bigPictureStyle.setBigContentTitle(
                         bigPictureStyleModel.contentTitle);
             }
             if (!Utils.isEmpty(bigPictureStyleModel.summaryText)) {
-                mDebugger.logT("bigPictureStyleModel.summaryText: "
+                mDebugger.log("bigPictureStyleModel.summaryText: "
                         + bigPictureStyleModel.summaryText);
                 bigPictureStyle.setSummaryText(
                         bigPictureStyleModel.summaryText);

@@ -18,8 +18,10 @@ package com.infstory.notification;
 
 import android.app.Notification;
 import android.content.Context;
+import android.net.Uri;
 
 import com.bluelinelabs.logansquare.LoganSquare;
+import com.bluelinelabs.logansquare.typeconverters.UriTypeConverter;
 import com.infstory.notification.debug.Debugger;
 import com.infstory.notification.model.AndroidNotificationJsonModel;
 
@@ -57,17 +59,18 @@ public class Notifications {
             // There's a TypeConverter mechanism can be used, however, it cannot pass parameters.
             // I need to pass parameters for building the instance so just do this by build() method
             // in each model itself.
-            mDebugger.logT(jsonObject.toString());
+            mDebugger.log(jsonObject.toString());
             if (jsonObject.has(ANDROID)) {
+                LoganSquare.registerTypeConverter(Uri.class, new UriTypeConverter());
                 notification = LoganSquare
                         .parse(jsonObject.get(ANDROID).toString(),
                                 AndroidNotificationJsonModel.class)
                         .build(jsonObject.get(ANDROID), mContext);
             } else {
-                mDebugger.logT("Wrong JSON format");
+                mDebugger.log("Wrong JSON format");
             }
         } catch (Exception e) {
-            mDebugger.logT(e);
+            mDebugger.log(e);
         }
 
         return notification;
