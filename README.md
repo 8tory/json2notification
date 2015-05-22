@@ -1,5 +1,7 @@
 # Convert JSON to Android Notification
 
+[![Join the chat at https://gitter.im/8tory/AndroidNotificationJson](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/8tory/AndroidNotificationJson?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 This is very useful for push notification (GCM).
 
 ## Usage
