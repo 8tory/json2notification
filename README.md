@@ -1,21 +1,46 @@
-# Convert JSON to Android Notification
+# json2notification
 
-[![Join the chat at https://gitter.im/8tory/AndroidNotificationJson](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/8tory/AndroidNotificationJson?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+[![Join the chat at https://gitter.im/8tory/json2notification](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/8tory/json2notification?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-This is very useful for push notification (GCM).
+![](art/json2notification-2-square-blue-xxdpi.png)
+
+JSON to Android Notification. This is very useful for push notification (GCM).
 
 ## Usage
 
-### Sample code
-
 ```java
-import android.app.Notification;
-import com.infstory.notification.Notifications;
-
-Notification n = Notifications.from(context).build(json);
+Notification notification = Json2Notification.from(context).with(json).notification();
+NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+notificationManager.notify(1, notification);
 ```
 
-#### Input json format
+## Installation
+
+via jitpack:
+
+```gradle
+repositories {
+    maven { url "https://jitpack.io" }
+}
+
+dependencies {
+    compile 'com.github.8tory:json2notification:-SNAPSHOT'
+}
+```
+
+via jcenter(in progress):
+
+```gradle
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile 'com.infstory:json2notification:1.0.0'
+}
+```
+
+## Input json format
 
 ```json
 {

@@ -1,2 +1,2 @@
-include ':AndroidNotificationJson'
-include ':AndroidNotificationJsonSample'
+include ':json2notification'
+include ':json2notification-app'
