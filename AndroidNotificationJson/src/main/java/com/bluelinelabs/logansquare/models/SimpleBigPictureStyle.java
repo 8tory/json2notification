@@ -14,50 +14,35 @@
  * limitations under the License.
  */
 
-package com.infstory.notification.model;
-
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
+package com.bluelinelabs.logansquare.typeconverters;
 
 import com.bluelinelabs.logansquare.annotation.JsonField;
 import com.bluelinelabs.logansquare.annotation.JsonObject;
-import com.infstory.notification.Utils;
-import com.infstory.notification.debug.Debugger;
 
 import proguard.annotation.Keep;
 import proguard.annotation.KeepClassMembers;
 
+
+/**
+ * <pre>
+ * "bigPictureStyle": {
+ *     "contentTitle": "Sample Big Picture Title",
+ *     "summaryText": "Sample big picture text",
+ *     "bigLargeIcon": "http://8tory.com/images/logo.png",
+ *     "bigPicture": "http://8tory.com/images/logo.png"
+ * },
+ * </pre>
+ */
 @Keep
 @KeepClassMembers
 @JsonObject
-public class IntentModel implements ModelBuilder<Intent> {
-
-    private Debugger mDebugger;
-
+public class SimpleBigPictureStyle {
     @JsonField
-    public String action;
+    public String bigLargeIcon;
     @JsonField
-    public Uri uri;
-
-    @Override
-    public Intent build(Object... objects) {
-        Context context = (Context) objects[0];
-
-        mDebugger = new Debugger(context);
-
-        Intent intent = new Intent();
-
-        if (!Utils.isEmpty(action)) {
-            mDebugger.log("action: " + action);
-            intent.setAction(action);
-        }
-        if (!Utils.isEmpty(uri)) {
-            mDebugger.log("uri: " + uri.toString());
-            intent.setData(uri);
-        }
-
-        return intent;
-    }
+    public String bigPicture;
+    @JsonField
+    public String contentTitle;
+    @JsonField
+    public String summaryText;
 }
-
