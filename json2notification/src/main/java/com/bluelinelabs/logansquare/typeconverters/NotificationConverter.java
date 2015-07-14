@@ -27,6 +27,7 @@ import android.app.Notification;
 import java.io.IOException;
 import android.graphics.Bitmap;
 import com.nostra13.universalimageloader.core.ImageLoader;
+import com.bluelinelabs.logansquare.LoganSquare;
 
 /**
  * <pre>
@@ -40,11 +41,19 @@ import com.nostra13.universalimageloader.core.ImageLoader;
  * </pre>
  */
 public class NotificationConverter implements TypeConverter<Notification> {
+//public class NotificationConverter extends StringBasedTypeConverter<Notification> {
     Context context;
 
     public NotificationConverter(Context context) {
         this.context = context;
     }
+
+    //@Override public Notification getFromString(String string) {
+        //SimpleNotification simpleNotification = null;
+        //try {
+            //simpleNotification = LoganSquare.parse(string, SimpleNotification.class);
+        //} catch (Exception e) {
+        //}
 
     @Override
     public Notification parse(JsonParser jsonParser) throws IOException {
@@ -189,9 +198,14 @@ public class NotificationConverter implements TypeConverter<Notification> {
     @Override
     public void serialize(Notification notification, String fieldName, boolean writeFieldNameForObject,
             JsonGenerator jsonGenerator) throws IOException {
-        // SimpleNotification simpleNotification = new SimpleNotification();
-        // TODO
-        // SimpleNotification$$JsonObjectMapper._serialize((SimpleNotification) simpleNotification, jsonGenerator, true);
+         //SimpleNotification simpleNotification = new SimpleNotification();
+         //TODO
+         //SimpleNotification$$JsonObjectMapper._serialize((SimpleNotification) simpleNotification, jsonGenerator, true);
     }
+
+    //@Override
+    //public String convertToString(Notification notification) {
+        //return null;
+    //}
 }
 
