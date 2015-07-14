@@ -15,8 +15,8 @@
    id="svg3051"
    xml:space="preserve"
    style="overflow:visible"
-   inkscape:version="0.48.5 r10040"
-   sodipodi:docname="android-notification-json-2-sqaure-blue.svg"
+   inkscape:version="0.48.3.1 r9886"
+   sodipodi:docname="json2notification-2-square-blue.svg"
    inkscape:export-filename="auto-json.png"
    inkscape:export-xdpi="62.75"
    inkscape:export-ydpi="62.75"><sodipodi:namedview
@@ -28,15 +28,15 @@
    guidetolerance="10"
    inkscape:pageopacity="0"
    inkscape:pageshadow="2"
-   inkscape:window-width="1920"
-   inkscape:window-height="1028"
+   inkscape:window-width="1855"
+   inkscape:window-height="1176"
    id="namedview20"
    showgrid="false"
-   inkscape:zoom="0.32138577"
-   inkscape:cx="-727.61816"
-   inkscape:cy="23.226342"
-   inkscape:window-x="-8"
-   inkscape:window-y="-8"
+   inkscape:zoom="0.22725406"
+   inkscape:cx="-1327.3982"
+   inkscape:cy="339.83696"
+   inkscape:window-x="65"
+   inkscape:window-y="24"
    inkscape:window-maximized="1"
    inkscape:current-layer="svg3051"
    fit-margin-top="0"
@@ -45,7 +45,7 @@
    fit-margin-bottom="0" /><svg:metadata
    id="metadata3077"><rdf:RDF><cc:Work
        rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
-         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></svg:metadata><svg:defs
+         rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title /></cc:Work></rdf:RDF></svg:metadata><svg:defs
    id="defs3075">
 
 
@@ -155,7 +155,31 @@
      result="composite2"
      id="feComposite4075" /></svg:filter>
 
-</svg:defs>
+<svg:filter
+   inkscape:label="Drop Shadow"
+   id="filter4053-8"
+   color-interpolation-filters="sRGB"><svg:feFlood
+     flood-opacity="0.8"
+     flood-color="rgb(0,0,0)"
+     result="flood"
+     id="feFlood4055-4" /><svg:feComposite
+     in="flood"
+     in2="SourceGraphic"
+     operator="in"
+     result="composite1"
+     id="feComposite4057-5" /><svg:feGaussianBlur
+     stdDeviation="2.4"
+     result="blur"
+     id="feGaussianBlur4059-7" /><svg:feOffset
+     dx="0"
+     dy="2"
+     result="offset"
+     id="feOffset4061-6" /><svg:feComposite
+     in="SourceGraphic"
+     in2="offset"
+     operator="over"
+     result="composite2"
+     id="feComposite4063-7" /></svg:filter></svg:defs>
   
 
 
@@ -169,7 +193,7 @@
    x="0"
    y="-3.7865323e-029" /><svg:g
    id="g3"
-   transform="matrix(9.5207887,0,0,9.5207887,249.28794,253.19669)"
+   transform="matrix(9.5207887,0,0,9.5207887,247.99911,349.51302)"
    style="fill:#ffffff;filter:url(#filter4065)"
    inkscape:export-xdpi="59.18"
    inkscape:export-ydpi="59.18"><svg:path
@@ -195,26 +219,22 @@
    id="obj-start"
    xml:space="preserve"
    style="font-size:437.85296631px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;filter:url(#filter4053);font-family:Bitstream Vera Sans Mono;-inkscape-font-specification:Bitstream Vera Sans Mono"
-   transform="matrix(1.6311272,0,0,1.5897557,208.241,157.40922)"><svg:tspan
+   transform="matrix(1.1542539,0,0,1.1249776,104.5367,379.87277)"><svg:tspan
      style="fill:#ffffff"
      x="-107.85273"
      y="308.31335"
      id="tspan3093">{</svg:tspan></svg:text>
-<svg:text
-   sodipodi:linespacing="125%"
-   x="358.8009"
-   y="317.00388"
-   id="obj-end"
-   xml:space="preserve"
-   style="font-size:437.85296631px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;filter:url(#filter4041);font-family:Bitstream Vera Sans"
-   transform="matrix(1.6311272,0,0,1.5897557,54.240995,143.59341)"><svg:tspan
-     style="fill:#ffffff"
-     x="358.8009"
-     y="317.00388"
-     id="tspan3097">}</svg:tspan></svg:text>
-<svg:g
+
+
+<svg:rect
+   style="opacity:0.3;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.03031373;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+   id="rect3018"
+   width="917.90326"
+   height="248.56598"
+   x="-3.113224"
+   y="-1.7419518" /><svg:g
    id="g3795"
-   transform="matrix(1.9151012,0,0,1.9151012,386.53431,-162.64687)"
+   transform="matrix(1.2297355,0,0,1.2297355,-52.521528,-86.255444)"
    style="filter:url(#filter3801)"><svg:path
    transform="matrix(0.7957247,0,0,0.7957247,-30.156998,152.43102)"
    d="m 347.62856,23.948263 c 0,54.680682 -44.32746,99.008137 -99.00814,99.008137 -54.68068,0 -99.00813,-44.327455 -99.00813,-99.008137 0,-54.680682 44.32745,-99.008133 99.00813,-99.008133 54.68068,0 99.00814,44.327451 99.00814,99.008133 z"
@@ -245,4 +265,17 @@
      x="128.51422"
      sodipodi:role="line">@</svg:tspan></svg:text>
 
-</svg:g></svg:svg>
+
+</svg:g><svg:text
+   sodipodi:linespacing="125%"
+   x="-107.85273"
+   y="308.31335"
+   id="obj-start-2"
+   xml:space="preserve"
+   style="font-size:437.85296631px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;overflow:visible;filter:url(#filter4053-8);font-family:Bitstream Vera Sans Mono;-inkscape-font-specification:Bitstream Vera Sans Mono"
+   transform="matrix(-1.1542539,0,0,-1.1249776,799.30518,781.10998)"><svg:tspan
+     style="fill:#ffffff"
+     x="-107.85273"
+     y="308.31335"
+     id="tspan3093-0">{</svg:tspan></svg:text>
+</svg:svg>
