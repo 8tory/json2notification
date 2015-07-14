@@ -49,7 +49,7 @@ dependencies {
     compile 'com.infstory:logansquare:1.1.1'
 
     compile 'com.android.support:support-v4:21.0.3'
-    compile 'com.infstory:proguard-annotations:1.0.1'
+    compile 'com.infstory:proguard-annotations:1.0.2'
     compile 'com.nostra13.universalimageloader:universal-image-loader:1.9.3'
     // testing
     // testCompile 'junit:junit-dep:4.10'
