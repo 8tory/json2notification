@@ -73,7 +73,7 @@ dependencies {
                     "uri": "https://play.google.com/store/apps/details?id=com.story8.android.gallery"
                 }
             },
-            "largeIcon": ""http://upload.wikimedia.org/wikipedia/en/b/bc/Wiki.png"",
+            "largeIcon": "http://upload.wikimedia.org/wikipedia/en/b/bc/Wiki.png",
             "smallIcon": "R.drawable.ic_launcher",
             "sound": "content://settings/system/notification_sound"
         }
