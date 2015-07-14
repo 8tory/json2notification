@@ -1,10 +1,13 @@
 # json2notification
 
+[![Download](https://api.bintray.com/packages/8tory/maven/json2notification/images/download.svg) ](https://bintray.com/8tory/maven/json2notification/_latestVersion)
+[![JitPack](https://img.shields.io/github/tag/8tory/json2notification.svg?label=JitPack)](https://jitpack.io/#8tory/json2notification)
+[![Build Status](https://travis-ci.org/8tory/json2notification.svg)](https://travis-ci.org/8tory/json2notification)
 [![Join the chat at https://gitter.im/8tory/json2notification](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/8tory/json2notification?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-![](art/json2notification-2-square-blue-xxdpi.png)
+![](art/json2notification-2-square-blue-xxhdpi.png)
 
-JSON to Android Notification. This is very useful for push notification (GCM).
+Convert JSON to Android Notification. This is very useful for push notification (GCM).
 
 ## Usage
 
@@ -28,7 +31,7 @@ dependencies {
 }
 ```
 
-via jcenter(in progress):
+via jcenter:
 
 ```gradle
 repositories {
@@ -48,12 +51,12 @@ dependencies {
         "notification": {
             "autoCancel": true,
             "bigPictureStyle": {
-                "contentTitle": "Sample Big Picture Title",
-                "summaryText": "Sample big picture text",
-                "bigLargeIcon": "http://8tory.com/images/logo.png",
-                "bigPicture": "http://8tory.com/images/logo.png"
+                "contentTitle": "json2notification",
+                "summaryText": "JSON to Android Notification",
+                "bigLargeIcon": "http://upload.wikimedia.org/wikipedia/en/b/bc/Wiki.png",
+                "bigPicture": "http://upload.wikimedia.org/wikipedia/en/b/bc/Wiki.png"
             },
-            "contentInfo": "sample info",
+            "contentInfo": "json2notification.Json2Notification.from(context).with(json).notification();",
             "contentIntent": {
                 "getActivity": true,
                 "intent": {
@@ -61,8 +64,8 @@ dependencies {
                     "uri": "https://play.google.com/store/apps/details?id=com.story8.android.gallery"
                 }
             },
-            "contentText": "Sample content",
-            "contentTitle": "Sample Title",
+            "contentText": "JSON to Android Notification",
+            "contentTitle": "json2notification",
             "deleteIntent": {
                 "getActivity": true,
                 "intent": {
@@ -70,8 +73,8 @@ dependencies {
                     "uri": "https://play.google.com/store/apps/details?id=com.story8.android.gallery"
                 }
             },
-            "largeIcon": "http://8tory.com/images/logo.png",
-            "smallIcon": "R.drawable.ic_stat_notify_story8",
+            "largeIcon": ""http://upload.wikimedia.org/wikipedia/en/b/bc/Wiki.png"",
+            "smallIcon": "R.drawable.ic_launcher",
             "sound": "content://settings/system/notification_sound"
         }
     }
