@@ -2,6 +2,7 @@
 
 [![Download](https://api.bintray.com/packages/8tory/maven/json2notification/images/download.svg) ](https://bintray.com/8tory/maven/json2notification/_latestVersion)
 [![JitPack](https://img.shields.io/github/tag/8tory/json2notification.svg?label=JitPack)](https://jitpack.io/#8tory/json2notification)
+[![javadoc](https://img.shields.io/github/tag/8tory/json2notification.svg?label=javadoc)](https://jitpack.io/com/github/8tory/json2notification/f0c95a6cf4/javadoc/index.html)
 [![Build Status](https://travis-ci.org/8tory/json2notification.svg)](https://travis-ci.org/8tory/json2notification)
 [![Join the chat at https://gitter.im/8tory/json2notification](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/8tory/json2notification?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
