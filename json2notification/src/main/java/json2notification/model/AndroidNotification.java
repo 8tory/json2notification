@@ -74,11 +74,25 @@ public class AndroidNotification {
     @JsonField
     public Android android;
 
+    Context context;
+
     public static AndroidNotification parse(Context context, String json) {
         LoganSquare.registerTypeConverter(PendingIntent.class, new PendingIntentConverter(context));
         LoganSquare.registerTypeConverter(Notification.class, new NotificationConverter(context));
         try {
-            return LoganSquare.parse(json, AndroidNotification.class);
+            AndroidNotification androidNotification = LoganSquare.parse(json, AndroidNotification.class);
+            androidNotification.context = context;
+            return androidNotification;
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    public String serialize() {
+        LoganSquare.registerTypeConverter(PendingIntent.class, new PendingIntentConverter(context));
+        LoganSquare.registerTypeConverter(Notification.class, new NotificationConverter(context));
+        try {
+            return LoganSquare.serialize(this);
         } catch (Exception e) {
             return null;
         }

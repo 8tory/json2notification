@@ -56,10 +56,12 @@ public class IntentConverter implements TypeConverter<Intent> {
     @Override
     public void serialize(Intent intent, String fieldName, boolean writeFieldNameForObject,
             JsonGenerator jsonGenerator) throws IOException {
-        // SimpleIntent simpleIntent = new SimpleIntent();
-        // simpleIntent.uri = intent.getData();
-        // TODO
-        // SimpleIntent$$JsonObjectMapper._serialize((SimpleIntent) simpleIntent, jsonGenerator, true);
+        android.util.Log.d("json2notification", "IntentConverter:serialize");
+        SimpleIntent simpleIntent = new SimpleIntent();
+        simpleIntent.uri = intent.getData();
+        simpleIntent.action = intent.getAction();
+        if (writeFieldNameForObject) jsonGenerator.writeFieldName(fieldName);
+        SimpleIntent$$JsonObjectMapper._serialize((SimpleIntent) simpleIntent, jsonGenerator, true);
     }
 }
 

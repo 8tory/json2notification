@@ -126,7 +126,7 @@ public class SimpleNotification {
     @JsonField
     public String subText;
     @JsonField
-    public String tickerText;
+    public CharSequence tickerText;
     @JsonField
     public Boolean usesChronometer;
     @JsonField

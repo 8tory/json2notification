@@ -38,24 +38,34 @@ import android.app.NotificationManager;
 
 import org.json.JSONObject;
 import org.json.JSONException;
-
+import json2notification.model.AndroidNotification;
+import android.widget.TextView;
 
 public class MainActivity extends ActionBarActivity {
     NotificationManager notificationManager;
+    TextView jsonView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        jsonView = (TextView) findViewById(R.id.json);
 
         notificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         String wikiJson = readFile("wiki.json");
+        jsonView.setText(wikiJson);
         new AsyncTask<String, Void, Void>() {
             @Override public Void doInBackground(String... jsons) {
                 android.util.Log.d("json2notification-app", "json:" + jsons[0]);
-                Notification n = Json2Notification.from(MainActivity.this).with(jsons[0]).notification();
-                android.util.Log.d("json2notification-app", "notify:" + n);
-                notificationManager.notify(1, n);
+
+                //Notification n = Json2Notification.from(MainActivity.this).with(jsons[0]).notification();
+                //notificationManager.notify(1, n);
+                //android.util.Log.d("json2notification-app", "notify:" + n);
+
+                AndroidNotification androidNotification = AndroidNotification.parse(MainActivity.this, jsons[0]);
+                android.util.Log.d("json2notification-app", "notify:" + androidNotification.android.notification);
+                notificationManager.notify(1, androidNotification.android.notification);
+                android.util.Log.d("json2notification-app", "serialize:" + androidNotification.serialize());
                 return null;
             }
         }.execute(wikiJson);

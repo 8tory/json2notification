@@ -28,6 +28,7 @@ import java.io.IOException;
 import android.graphics.Bitmap;
 import com.nostra13.universalimageloader.core.ImageLoader;
 import com.bluelinelabs.logansquare.LoganSquare;
+import java.util.Arrays;
 
 /**
  * <pre>
@@ -198,9 +199,57 @@ public class NotificationConverter implements TypeConverter<Notification> {
     @Override
     public void serialize(Notification notification, String fieldName, boolean writeFieldNameForObject,
             JsonGenerator jsonGenerator) throws IOException {
-         //SimpleNotification simpleNotification = new SimpleNotification();
-         //TODO
-         //SimpleNotification$$JsonObjectMapper._serialize((SimpleNotification) simpleNotification, jsonGenerator, true);
+        android.util.Log.d("json2notification", "fieldName:" + fieldName);
+        android.util.Log.d("json2notification", "notification:" + notification);
+        if (notification == null) return;
+        SimpleNotification simpleNotification = new SimpleNotification();
+
+        simpleNotification.autoCancel = (notification.flags & Notification.FLAG_AUTO_CANCEL) == Notification.FLAG_AUTO_CANCEL;
+        android.util.Log.d("json2notification", "autoCancel:" + simpleNotification.autoCancel);
+
+        //simpleNotification.bigPictureStyle // TODO
+
+        simpleNotification.category = notification.category;
+        simpleNotification.color = notification.color > 0 ? notification.color : null;
+        simpleNotification.contentInfo = notification.extras.getString(Notification.EXTRA_INFO_TEXT);
+        simpleNotification.contentIntent = notification.contentIntent;
+        simpleNotification.contentTitle = notification.extras.getString(Notification.EXTRA_TITLE);
+        simpleNotification.contentText = notification.extras.getString(Notification.EXTRA_TEXT);
+        simpleNotification.defaults = notification.defaults > 0 ? notification.defaults : null;
+        simpleNotification.deleteIntent = notification.deleteIntent;
+        //simpleNotification.extras;
+        simpleNotification.groupKey = notification.getGroup();
+        if (simpleNotification.groupKey != null) {
+            simpleNotification.groupSummary = (notification.flags & Notification.FLAG_GROUP_SUMMARY) == Notification.FLAG_GROUP_SUMMARY;
+        }
+        simpleNotification.largeIcon = Bitmaps.base64((Bitmap) notification.extras.getParcelable(Notification.EXTRA_LARGE_ICON));
+        //if ((notification.flags & Notification.FLAG_SHOW_LIGHTS) == Notification.FLAG_SHOW_LIGHTS) {
+            //simpleNotification.lights = Arrays.asList(notification.ledARGB, notification.ledOnMS, notification.ledOffMS);
+        //}
+        simpleNotification.localOnly = (notification.flags & Notification.FLAG_LOCAL_ONLY) == Notification.FLAG_LOCAL_ONLY;
+        simpleNotification.number = notification.number > 0 ? notification.number : null;
+        simpleNotification.ongoing = (notification.flags & Notification.FLAG_ONGOING_EVENT) == Notification.FLAG_ONGOING_EVENT;
+        simpleNotification.onlyAlertOnce = (notification.flags & Notification.FLAG_ONLY_ALERT_ONCE) == Notification.FLAG_ONLY_ALERT_ONCE;
+        //simpleNotification.people = Arrays.asList(notification.extras.getStringArray(Notification.EXTRA_PEOPLE));
+        simpleNotification.priority = notification.priority > 0 ? notification.priority : null;
+        //simpleNotification.progress;
+        //simpleNotification.publicVersion;
+        simpleNotification.showWhen = notification.extras.getBoolean(Notification.EXTRA_SHOW_WHEN);
+        if (simpleNotification.showWhen) {
+            simpleNotification.when = notification.when;
+        }
+        simpleNotification.smallIcon = String.valueOf(notification.extras.getInt(Notification.EXTRA_SMALL_ICON)); // TODO getResourceNameById()
+        android.util.Log.d("json2notification", "simpleNotification.smallIcon" + simpleNotification.smallIcon);
+        simpleNotification.sortKey = notification.getSortKey();
+        simpleNotification.sound = notification.sound;
+        simpleNotification.subText = notification.extras.getString(Notification.EXTRA_SUB_TEXT);
+        simpleNotification.tickerText = notification.tickerText;
+        simpleNotification.usesChronometer = notification.extras.getBoolean(Notification.EXTRA_SHOW_CHRONOMETER);
+        simpleNotification.visibility = notification.visibility > 0 ? notification.visibility : null;
+
+        android.util.Log.d("json2notification", "writeFieldNameForObject:" + writeFieldNameForObject);
+        if (writeFieldNameForObject) jsonGenerator.writeFieldName(fieldName);
+        SimpleNotification$$JsonObjectMapper._serialize((SimpleNotification) simpleNotification, jsonGenerator, true);
     }
 
     //@Override
@@ -208,4 +257,3 @@ public class NotificationConverter implements TypeConverter<Notification> {
         //return null;
     //}
 }
-

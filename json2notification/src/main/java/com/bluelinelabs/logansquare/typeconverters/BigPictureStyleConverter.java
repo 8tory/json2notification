@@ -67,8 +67,10 @@ public class BigPictureStyleConverter implements TypeConverter<NotificationCompa
     @Override
     public void serialize(NotificationCompat.BigPictureStyle bigPictureStyle, String fieldName, boolean writeFieldNameForObject,
             JsonGenerator jsonGenerator) throws IOException {
-        // SimpleBigPictureStyle simpleBigPictureStyle = new SimpleBigPictureStyle();
+        android.util.Log.d("json2notification", "BigPictureStyleConverter:serialize");
+        SimpleBigPictureStyle simpleBigPictureStyle = new SimpleBigPictureStyle();
         // TODO
-        // SimpleBigPictureStyle$$JsonObjectMapper._serialize((SimpleBigPictureStyle) simpleBigPictureStyle, jsonGenerator, true);
+        if (writeFieldNameForObject) jsonGenerator.writeFieldName(fieldName);
+        SimpleBigPictureStyle$$JsonObjectMapper._serialize((SimpleBigPictureStyle) simpleBigPictureStyle, jsonGenerator, true);
     }
 }
