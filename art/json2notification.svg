@@ -11,15 +11,15 @@
    version="1.1"
    width="100%"
    height="100%"
-   viewBox="0 0 335.35282 342.97447"
+   viewBox="0 0 909.93669 909.93669"
    id="svg3051"
    xml:space="preserve"
    style="overflow:visible"
-   inkscape:version="0.48.5 r10040"
-   sodipodi:docname="auto-json.svg"
-   inkscape:export-filename="auto-json.png"
-   inkscape:export-xdpi="62.75"
-   inkscape:export-ydpi="62.75"><sodipodi:namedview
+   inkscape:version="0.48.3.1 r9886"
+   sodipodi:docname="json2notification-2-square-blue.svg"
+   inkscape:export-filename="json2notification-2-square-blue.png"
+   inkscape:export-xdpi="160.03311"
+   inkscape:export-ydpi="160.03311"><sodipodi:namedview
    pagecolor="#ffffff"
    bordercolor="#666666"
    borderopacity="1"
@@ -28,34 +28,248 @@
    guidetolerance="10"
    inkscape:pageopacity="0"
    inkscape:pageshadow="2"
-   inkscape:window-width="1920"
-   inkscape:window-height="1028"
+   inkscape:window-width="1855"
+   inkscape:window-height="1176"
    id="namedview20"
    showgrid="false"
-   inkscape:zoom="0.90901623"
-   inkscape:cx="-5.7740747"
-   inkscape:cy="270.46164"
-   inkscape:window-x="-8"
-   inkscape:window-y="-8"
+   inkscape:zoom="0.22725406"
+   inkscape:cx="-1038.6086"
+   inkscape:cy="1304.7975"
+   inkscape:window-x="65"
+   inkscape:window-y="24"
    inkscape:window-maximized="1"
    inkscape:current-layer="svg3051"
    fit-margin-top="0"
    fit-margin-left="0"
    fit-margin-right="0"
-   fit-margin-bottom="0" /><svg:metadata
+   fit-margin-bottom="0"
+   showguides="true"
+   inkscape:guide-bbox="true" /><svg:metadata
    id="metadata3077"><rdf:RDF><cc:Work
        rdf:about=""><dc:format>image/svg+xml</dc:format><dc:type
          rdf:resource="http://purl.org/dc/dcmitype/StillImage" /><dc:title></dc:title></cc:Work></rdf:RDF></svg:metadata><svg:defs
-   id="defs3075" />
+   id="defs3075">
+
+
+
+
+
+
+
+
+
+
+<svg:filter
+   inkscape:label="Drop Shadow"
+   id="filter3801"
+   color-interpolation-filters="sRGB"><svg:feFlood
+     flood-opacity="0.8"
+     flood-color="rgb(0,0,0)"
+     result="flood"
+     id="feFlood3803" /><svg:feComposite
+     in="flood"
+     in2="SourceGraphic"
+     operator="in"
+     result="composite1"
+     id="feComposite3805" /><svg:feGaussianBlur
+     stdDeviation="5"
+     result="blur"
+     id="feGaussianBlur3807" /><svg:feOffset
+     dx="0"
+     dy="10"
+     result="offset"
+     id="feOffset3809" /><svg:feComposite
+     in="SourceGraphic"
+     in2="offset"
+     operator="over"
+     result="composite2"
+     id="feComposite3811" /></svg:filter><svg:filter
+   inkscape:label="Drop Shadow"
+   id="filter4041"
+   color-interpolation-filters="sRGB"><svg:feFlood
+     flood-opacity="0.8"
+     flood-color="rgb(0,0,0)"
+     result="flood"
+     id="feFlood4043" /><svg:feComposite
+     in="flood"
+     in2="SourceGraphic"
+     operator="in"
+     result="composite1"
+     id="feComposite4045" /><svg:feGaussianBlur
+     stdDeviation="2.4"
+     result="blur"
+     id="feGaussianBlur4047" /><svg:feOffset
+     dx="0"
+     dy="2"
+     result="offset"
+     id="feOffset4049" /><svg:feComposite
+     in="SourceGraphic"
+     in2="offset"
+     operator="over"
+     result="composite2"
+     id="feComposite4051" /></svg:filter><svg:filter
+   inkscape:label="Drop Shadow"
+   id="filter4053"
+   color-interpolation-filters="sRGB"><svg:feFlood
+     flood-opacity="0.8"
+     flood-color="rgb(0,0,0)"
+     result="flood"
+     id="feFlood4055" /><svg:feComposite
+     in="flood"
+     in2="SourceGraphic"
+     operator="in"
+     result="composite1"
+     id="feComposite4057" /><svg:feGaussianBlur
+     stdDeviation="2.4"
+     result="blur"
+     id="feGaussianBlur4059" /><svg:feOffset
+     dx="0"
+     dy="2"
+     result="offset"
+     id="feOffset4061" /><svg:feComposite
+     in="SourceGraphic"
+     in2="offset"
+     operator="over"
+     result="composite2"
+     id="feComposite4063" /></svg:filter><svg:filter
+   inkscape:label="Drop Shadow"
+   id="filter4065"
+   color-interpolation-filters="sRGB"><svg:feFlood
+     flood-opacity="0.8"
+     flood-color="rgb(0,0,0)"
+     result="flood"
+     id="feFlood4067" /><svg:feComposite
+     in="flood"
+     in2="SourceGraphic"
+     operator="in"
+     result="composite1"
+     id="feComposite4069" /><svg:feGaussianBlur
+     stdDeviation="2.4"
+     result="blur"
+     id="feGaussianBlur4071" /><svg:feOffset
+     dx="0"
+     dy="2"
+     result="offset"
+     id="feOffset4073" /><svg:feComposite
+     in="SourceGraphic"
+     in2="offset"
+     operator="over"
+     result="composite2"
+     id="feComposite4075" /></svg:filter>
+
+<svg:filter
+   inkscape:label="Drop Shadow"
+   id="filter4053-8"
+   color-interpolation-filters="sRGB"><svg:feFlood
+     flood-opacity="0.8"
+     flood-color="rgb(0,0,0)"
+     result="flood"
+     id="feFlood4055-4" /><svg:feComposite
+     in="flood"
+     in2="SourceGraphic"
+     operator="in"
+     result="composite1"
+     id="feComposite4057-5" /><svg:feGaussianBlur
+     stdDeviation="2.4"
+     result="blur"
+     id="feGaussianBlur4059-7" /><svg:feOffset
+     dx="0"
+     dy="2"
+     result="offset"
+     id="feOffset4061-6" /><svg:feComposite
+     in="SourceGraphic"
+     in2="offset"
+     operator="over"
+     result="composite2"
+     id="feComposite4063-7" /></svg:filter>
+
+
+
+
+
+
+</svg:defs>
   
 
 
 
 
+<svg:rect
+   style="fill:#2196f3;fill-opacity:1;fill-rule:nonzero;stroke:none"
+   id="rect3021"
+   width="909.93671"
+   height="909.93671"
+   x="0"
+   y="-3.7865323e-029"
+   inkscape:export-filename="json2notification-2-square-blue.png"
+   inkscape:export-xdpi="160.03265"
+   inkscape:export-ydpi="160.03265" />
+
+
+
+<image />
+
+
+
+
+
+
+<svg:rect
+   style="opacity:0.3;fill:#000000;fill-opacity:1;fill-rule:nonzero;stroke:#000000;stroke-width:1.03031373;stroke-linecap:butt;stroke-linejoin:bevel;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
+   id="rect3018"
+   width="917.90326"
+   height="248.56598"
+   x="-3.113224"
+   y="-1.7419518"
+   inkscape:export-filename="json2notification-2-square-blue.png"
+   inkscape:export-xdpi="160.03265"
+   inkscape:export-ydpi="160.03265" /><svg:path
+   sodipodi:type="arc"
+   style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;filter:url(#filter3801)"
+   id="path3783"
+   sodipodi:cx="248.62042"
+   sodipodi:cy="23.948263"
+   sodipodi:rx="99.008133"
+   sodipodi:ry="99.008133"
+   d="m 347.62856,23.948263 a 99.008133,99.008133 0 1 1 -198.01627,0 99.008133,99.008133 0 1 1 198.01627,0 z"
+   transform="matrix(1.1887964,0,0,1.1887964,-140.32719,96.158897)"
+   inkscape:export-filename="json2notification-2-square-blue.png"
+   inkscape:export-xdpi="160.03265"
+   inkscape:export-ydpi="160.03265" /><svg:path
+   sodipodi:type="arc"
+   style="fill:#d40000;fill-opacity:1;fill-rule:nonzero;stroke:none;filter:url(#filter3801)"
+   id="path3779"
+   sodipodi:cx="-294.03915"
+   sodipodi:cy="262.0748"
+   sodipodi:rx="220.9183"
+   sodipodi:ry="220.9183"
+   d="m -73.12085,262.0748 a 220.9183,220.9183 0 1 1 -441.83661,0 220.9183,220.9183 0 1 1 441.83661,0 z"
+   transform="matrix(0.41135515,0,0,0.41135515,274.63063,16.822688)"
+   inkscape:export-filename="json2notification-2-square-blue.png"
+   inkscape:export-xdpi="160.03265"
+   inkscape:export-ydpi="160.03265" /><svg:text
+   xml:space="preserve"
+   style="font-size:135.82684326px;font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ffffff;fill-opacity:1;stroke:none;filter:url(#filter3801);font-family:Source Code Pro Black;-inkscape-font-specification:'Source Code Pro Black, Heavy'"
+   x="128.51422"
+   y="205.48384"
+   id="text2997"
+   sodipodi:linespacing="125%"
+   transform="matrix(1.2297355,0,0,1.2297355,-52.521528,-86.255444)"
+   inkscape:export-filename="json2notification-2-square-blue.png"
+   inkscape:export-xdpi="160.03265"
+   inkscape:export-ydpi="160.03265"><svg:tspan
+     sodipodi:role="line"
+     x="128.51422"
+     y="205.48384"
+     id="tspan3001">@</svg:tspan></svg:text>
+
+
 <svg:g
    id="g3"
-   transform="scale(7.6216549,7.6216549)"
-   style="fill:#ffffff"><svg:path
+   transform="matrix(8.7404813,0,0,8.7404813,262.67775,366.30751)"
+   style="fill:#ffffff;filter:url(#filter4065)"
+   inkscape:export-xdpi="59.18"
+   inkscape:export-ydpi="59.18"><svg:path
      style="fill:#ffffff"
      inkscape:connector-curvature="0"
      d="M 40,30 H 39 V 19 C 39,11.719 33.811,5.653 26.929,4.291 26.581,1.868 24.518,0 22,0 19.482,0 17.419,1.868 17.071,4.291 10.19,5.653 5,11.719 5,19 V 30 H 4 c -2.209,0 -4,1.791 -4,4 0,2.209 1.791,4 4,4 h 36 c 2.209,0 4,-1.791 4,-4 0,-2.209 -1.791,-4 -4,-4 z"
@@ -63,55 +277,29 @@
      style="fill:#ffffff"
      inkscape:connector-curvature="0"
      d="m 22,45 c 2.762,0 5,-2.238 5,-5 H 17 c 0,2.762 2.239,5 5,5 z"
-     id="path7" /></svg:g>
-
-
-
-<image /><svg:g
-   id="g3778"
-   transform="matrix(1.1550989,0,0,1.1550989,61.649882,65.460708)"><svg:g
-     transform="translate(20.567342,-5.6953067)"
-     id="g3009"><svg:text
+     id="path7" /></svg:g><svg:text
    sodipodi:linespacing="125%"
-   x="-15.539062"
-   y="134.75093"
+   x="-107.85273"
+   y="308.31335"
    id="obj-start"
    xml:space="preserve"
-   style="font-size:144px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans Mono;-inkscape-font-specification:Bitstream Vera Sans Mono"><svg:tspan
-     x="-15.539062"
-     y="134.75093"
+   style="font-size:437.85296631px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;filter:url(#filter4053);font-family:Bitstream Vera Sans Mono;-inkscape-font-specification:Bitstream Vera Sans Mono"
+   transform="matrix(1.0596532,0,0,1.0327764,167.24616,392.37762)"><svg:tspan
+     style="fill:#ffffff"
+     x="-107.85273"
+     y="308.31335"
      id="tspan3093">{</svg:tspan></svg:text>
 
-
-
-
 <svg:text
-   sodipodi:linespacing="125%"
-   x="109.96094"
-   y="134.75093"
-   id="obj-end"
+   transform="matrix(-1.0596532,0,0,1.0327764,740.00806,392.37762)"
+   style="font-size:437.85296631px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;filter:url(#filter4053);font-family:Bitstream Vera Sans Mono;-inkscape-font-specification:Bitstream Vera Sans Mono"
    xml:space="preserve"
-   style="font-size:144px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"><svg:tspan
-     x="109.96094"
-     y="134.75093"
-     id="tspan3097">}</svg:tspan></svg:text>
-
-
-
-
-</svg:g><svg:text
-     sodipodi:linespacing="125%"
-     id="text2997"
-     y="127.83228"
-     x="50.271282"
-     style="font-size:144px;font-style:normal;font-variant:normal;font-weight:900;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#0c479c;fill-opacity:1;stroke:none;font-family:Source Code Pro Black;-inkscape-font-specification:'Source Code Pro Black, Heavy'"
-     xml:space="preserve"><svg:tspan
-       id="tspan3001"
-       y="127.83228"
-       x="50.271282"
-       sodipodi:role="line">@</svg:tspan></svg:text>
-</svg:g>
-
-
-
+   id="text3038"
+   y="308.31335"
+   x="-107.85273"
+   sodipodi:linespacing="125%"><svg:tspan
+     id="tspan3040"
+     y="308.31335"
+     x="-107.85273"
+     style="fill:#ffffff">{</svg:tspan></svg:text>
 </svg:svg>
