@@ -84,6 +84,7 @@ public class AndroidNotification {
             androidNotification.context = context;
             return androidNotification;
         } catch (Exception e) {
+            e.printStackTrace();
             return null;
         }
     }
@@ -94,6 +95,7 @@ public class AndroidNotification {
         try {
             return LoganSquare.serialize(this);
         } catch (Exception e) {
+            e.printStackTrace();
             return null;
         }
     }

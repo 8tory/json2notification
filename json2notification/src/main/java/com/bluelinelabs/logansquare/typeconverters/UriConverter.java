@@ -27,6 +27,7 @@ public class UriConverter extends StringBasedTypeConverter<Uri> {
 
     @Override
     public String convertToString(Uri uri) {
+        if (uri == null) return null;
         android.util.Log.d("json2notification", "UriConverter:convertToString");
         return uri.toString();
     }

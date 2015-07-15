@@ -139,9 +139,12 @@ public class NotificationConverter implements TypeConverter<Notification> {
             android.util.Log.d("json2notification", "priority:" + simpleNotification.priority);
             builder.setPriority(simpleNotification.priority);
         }
-//                if (simpleNotification.showWhen != null) {
-//                    builder.showWhen(showWhen);
-//                }
+        if (simpleNotification.publicVersion != null) {
+            builder.setPublicVersion(simpleNotification.publicVersion);
+        }
+        if (simpleNotification.showWhen != null) {
+            builder.setShowWhen(simpleNotification.showWhen);
+        }
         if (simpleNotification.smallIcon != null) {
             android.util.Log.d("json2notification", "smallIcon:" + simpleNotification.smallIcon);
             try {
@@ -223,17 +226,20 @@ public class NotificationConverter implements TypeConverter<Notification> {
             simpleNotification.groupSummary = (notification.flags & Notification.FLAG_GROUP_SUMMARY) == Notification.FLAG_GROUP_SUMMARY;
         }
         simpleNotification.largeIcon = Bitmaps.base64((Bitmap) notification.extras.getParcelable(Notification.EXTRA_LARGE_ICON));
-        //if ((notification.flags & Notification.FLAG_SHOW_LIGHTS) == Notification.FLAG_SHOW_LIGHTS) {
-            //simpleNotification.lights = Arrays.asList(notification.ledARGB, notification.ledOnMS, notification.ledOffMS);
-        //}
+        if ((notification.flags & Notification.FLAG_SHOW_LIGHTS) == Notification.FLAG_SHOW_LIGHTS) {
+            simpleNotification.lights = Arrays.asList(notification.ledARGB, notification.ledOnMS, notification.ledOffMS);
+        }
         simpleNotification.localOnly = (notification.flags & Notification.FLAG_LOCAL_ONLY) == Notification.FLAG_LOCAL_ONLY;
         simpleNotification.number = notification.number > 0 ? notification.number : null;
         simpleNotification.ongoing = (notification.flags & Notification.FLAG_ONGOING_EVENT) == Notification.FLAG_ONGOING_EVENT;
         simpleNotification.onlyAlertOnce = (notification.flags & Notification.FLAG_ONLY_ALERT_ONCE) == Notification.FLAG_ONLY_ALERT_ONCE;
-        //simpleNotification.people = Arrays.asList(notification.extras.getStringArray(Notification.EXTRA_PEOPLE));
+        String[] people = notification.extras.getStringArray(Notification.EXTRA_PEOPLE);
+        if (people != null) {
+            simpleNotification.people = Arrays.asList(people);
+        }
         simpleNotification.priority = notification.priority > 0 ? notification.priority : null;
         //simpleNotification.progress;
-        //simpleNotification.publicVersion;
+        simpleNotification.publicVersion = notification.publicVersion;
         simpleNotification.showWhen = notification.extras.getBoolean(Notification.EXTRA_SHOW_WHEN);
         if (simpleNotification.showWhen) {
             simpleNotification.when = notification.when;

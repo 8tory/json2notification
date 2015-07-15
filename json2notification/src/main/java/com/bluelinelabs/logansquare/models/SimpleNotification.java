@@ -113,8 +113,8 @@ public class SimpleNotification {
     public Integer priority;
 //    @JsonField
 //    public Progress progress;
-//    @JsonField
-//    public Notification publicVersion;
+    @JsonField
+    public Notification publicVersion;
     @JsonField
     public Boolean showWhen;
     @JsonField
