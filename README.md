@@ -1,5 +1,6 @@
 # json2notification
 
+[![Android Arsenal](https://img.shields.io/badge/Android%20Arsenal-json2notification-green.svg?style=flat)](https://android-arsenal.com/details/1/2136)
 [![Download](https://api.bintray.com/packages/8tory/maven/json2notification/images/download.svg) ](https://bintray.com/8tory/maven/json2notification/_latestVersion)
 [![JitPack](https://img.shields.io/github/tag/8tory/json2notification.svg?label=JitPack)](https://jitpack.io/#8tory/json2notification)
 [![javadoc](https://img.shields.io/github/tag/8tory/json2notification.svg?label=javadoc)](https://jitpack.io/com/github/8tory/json2notification/f0c95a6cf4/javadoc/index.html)
