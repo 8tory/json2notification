@@ -8,6 +8,8 @@
 
 ![](art/json2notification-2-square-blue-xxxhdpi.png)
 
+[![](art/screenshot.jpg)](https://appetize.io/app/bvrbydvtv3rex17t2ebn4wvcum)
+
 Convert JSON to Android Notification. This is very useful for push notification (GCM).
 
 ## Usage
