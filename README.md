@@ -7,7 +7,7 @@
 [![Build Status](https://travis-ci.org/8tory/json2notification.svg)](https://travis-ci.org/8tory/json2notification)
 [![Join the chat at https://gitter.im/8tory/json2notification](https://badges.gitter.im/Join%20Chat.svg)](https://gitter.im/8tory/json2notification?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
 
-![](art/json2notification-2-square-blue-xxxhdpi.png)
+![](art/json2notification.png)
 
 [![](art/screenshot.jpg)](https://appetize.io/app/bvrbydvtv3rex17t2ebn4wvcum)
 
