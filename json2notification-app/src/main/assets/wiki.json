@@ -4,7 +4,7 @@
            "contentTitle": "json2notification",
            "contentText": "JSON to Android Notification",
            "contentInfo": "json2notification.Json2Notification.from(context).with(json).notification();",
-           "largeIcon": "http://upload.wikimedia.org/wikipedia/en/b/bc/Wiki.png",
+           "largeIcon": "https://github.com/8tory/json2notification/raw/master/art/json2notification.png",
            "smallIcon": "R.drawable.ic_launcher",
            "contentIntent": {
                "getActivity": true,
@@ -16,8 +16,8 @@
            "bigPictureStyle": {
                "contentTitle": "json2notification",
                "summaryText": "JSON to Android Notification",
-               "bigLargeIcon": "http://upload.wikimedia.org/wikipedia/en/b/bc/Wiki.png",
-               "bigPicture": "http://upload.wikimedia.org/wikipedia/en/b/bc/Wiki.png"
+               "bigLargeIcon": "https://github.com/8tory/json2notification/raw/master/art/json2notification.png",
+               "bigPicture": "https://github.com/8tory/json2notification/raw/master/art/json2notification.png"
            },
            "autoCancel": true
        }
