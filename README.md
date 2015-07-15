@@ -21,6 +21,18 @@ NotificationManager notificationManager = (NotificationManager) context.getSyste
 notificationManager.notify(1, notification);
 ```
 
+## Integration of Parse push notification
+
+```java
+public SimpleParsePushBroadcastReceiver extends ParsePushBroadcastReceiver {
+    @Override public void onReceive(final Context context, Intent intent) {
+        String json = intent.getStringExtra("com.parse.Data");
+
+        Json2Notification.from(context).with(json).notifying();
+    }
+}
+```
+
 ## Installation
 
 via jitpack:
