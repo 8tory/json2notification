@@ -15,11 +15,11 @@
    id="svg3051"
    xml:space="preserve"
    style="overflow:visible"
-   inkscape:version="0.48.5 r10040"
-   sodipodi:docname="json2notification-2-square-blue.svg.2015_07_14_22_45_11.0.svg"
-   inkscape:export-filename="auto-json.png"
-   inkscape:export-xdpi="62.75"
-   inkscape:export-ydpi="62.75"><sodipodi:namedview
+   inkscape:version="0.48.3.1 r9886"
+   sodipodi:docname="json2notification-2-square-blue.svg"
+   inkscape:export-filename="json2notification-2-square-blue.png"
+   inkscape:export-xdpi="160.03311"
+   inkscape:export-ydpi="160.03311"><sodipodi:namedview
    pagecolor="#ffffff"
    bordercolor="#666666"
    borderopacity="1"
@@ -28,15 +28,15 @@
    guidetolerance="10"
    inkscape:pageopacity="0"
    inkscape:pageshadow="2"
-   inkscape:window-width="1920"
-   inkscape:window-height="1028"
+   inkscape:window-width="1855"
+   inkscape:window-height="1176"
    id="namedview20"
    showgrid="false"
-   inkscape:zoom="0.45450812"
-   inkscape:cx="86.385945"
-   inkscape:cy="354.24762"
-   inkscape:window-x="-8"
-   inkscape:window-y="-8"
+   inkscape:zoom="0.22725406"
+   inkscape:cx="-1038.6086"
+   inkscape:cy="1304.7975"
+   inkscape:window-x="65"
+   inkscape:window-y="24"
    inkscape:window-maximized="1"
    inkscape:current-layer="svg3051"
    fit-margin-top="0"
@@ -184,6 +184,10 @@
      id="feComposite4063-7" /></svg:filter>
 
 
+
+
+
+
 </svg:defs>
   
 
@@ -259,48 +263,43 @@
      y="205.48384"
      id="tspan3001">@</svg:tspan></svg:text>
 
+
 <svg:g
-   id="g3031"
-   transform="matrix(0.91804173,0,0,0.91804173,37.288413,145.28842)"><svg:g
-     inkscape:export-ydpi="59.18"
-     inkscape:export-xdpi="59.18"
-     style="fill:#ffffff;filter:url(#filter4065)"
-     transform="matrix(9.5207887,0,0,9.5207887,245.51099,240.75059)"
-     id="g3"><svg:path
-       id="path5"
-       d="M 40,30 H 39 V 19 C 39,11.719 33.811,5.653 26.929,4.291 26.581,1.868 24.518,0 22,0 19.482,0 17.419,1.868 17.071,4.291 10.19,5.653 5,11.719 5,19 V 30 H 4 c -2.209,0 -4,1.791 -4,4 0,2.209 1.791,4 4,4 h 36 c 2.209,0 4,-1.791 4,-4 0,-2.209 -1.791,-4 -4,-4 z"
-       inkscape:connector-curvature="0"
-       style="fill:#ffffff" /><svg:path
-       id="path7"
-       d="m 22,45 c 2.762,0 5,-2.238 5,-5 H 17 c 0,2.762 2.239,5 5,5 z"
-       inkscape:connector-curvature="0"
-       style="fill:#ffffff" /></svg:g><svg:g
-     transform="translate(-10.153688,1.7285158e-6)"
-     id="g3025"><svg:text
+   id="g3"
+   transform="matrix(8.7404813,0,0,8.7404813,262.67775,366.30751)"
+   style="fill:#ffffff;filter:url(#filter4065)"
+   inkscape:export-xdpi="59.18"
+   inkscape:export-ydpi="59.18"><svg:path
+     style="fill:#ffffff"
+     inkscape:connector-curvature="0"
+     d="M 40,30 H 39 V 19 C 39,11.719 33.811,5.653 26.929,4.291 26.581,1.868 24.518,0 22,0 19.482,0 17.419,1.868 17.071,4.291 10.19,5.653 5,11.719 5,19 V 30 H 4 c -2.209,0 -4,1.791 -4,4 0,2.209 1.791,4 4,4 h 36 c 2.209,0 4,-1.791 4,-4 0,-2.209 -1.791,-4 -4,-4 z"
+     id="path5" /><svg:path
+     style="fill:#ffffff"
+     inkscape:connector-curvature="0"
+     d="m 22,45 c 2.762,0 5,-2.238 5,-5 H 17 c 0,2.762 2.239,5 5,5 z"
+     id="path7" /></svg:g><svg:text
    sodipodi:linespacing="125%"
    x="-107.85273"
    y="308.31335"
    id="obj-start"
    xml:space="preserve"
    style="font-size:437.85296631px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;filter:url(#filter4053);font-family:Bitstream Vera Sans Mono;-inkscape-font-specification:Bitstream Vera Sans Mono"
-   transform="matrix(1.1542539,0,0,1.1249776,205.74501,235.59568)"><svg:tspan
+   transform="matrix(1.0596532,0,0,1.0327764,167.24616,392.37762)"><svg:tspan
      style="fill:#ffffff"
      x="-107.85273"
      y="308.31335"
      id="tspan3093">{</svg:tspan></svg:text>
 
 <svg:text
-   sodipodi:linespacing="125%"
-   x="-107.85273"
-   y="308.31335"
-   id="obj-start-2"
+   transform="matrix(-1.0596532,0,0,1.0327764,740.00806,392.37762)"
+   style="font-size:437.85296631px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;filter:url(#filter4053);font-family:Bitstream Vera Sans Mono;-inkscape-font-specification:Bitstream Vera Sans Mono"
    xml:space="preserve"
-   style="font-size:437.85296631px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#ffffff;fill-opacity:1;stroke:none;overflow:visible;filter:url(#filter4053-8);font-family:Bitstream Vera Sans Mono;-inkscape-font-specification:Bitstream Vera Sans Mono"
-   transform="matrix(-1.1542539,0,0,-1.1249776,724.49904,674.34099)"><svg:tspan
-     style="fill:#ffffff"
-     x="-107.85273"
+   id="text3038"
+   y="308.31335"
+   x="-107.85273"
+   sodipodi:linespacing="125%"><svg:tspan
+     id="tspan3040"
      y="308.31335"
-     id="tspan3093-0">{</svg:tspan></svg:text>
-
-</svg:g></svg:g>
+     x="-107.85273"
+     style="fill:#ffffff">{</svg:tspan></svg:text>
 </svg:svg>
