@@ -23,6 +23,7 @@ import org.json.JSONObject;
 import org.json.JSONException;
 
 import json2notification.model.AndroidNotification;
+import android.app.NotificationManager;
 
 public class Json2Notification {
     private static final String TAG = "json2notification";
@@ -61,5 +62,10 @@ public class Json2Notification {
         }
 
         return notification;
+    }
+
+    public void notifying() {
+        NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        notificationManager.notify(1, notification());
     }
 }
