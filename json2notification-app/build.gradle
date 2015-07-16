@@ -39,13 +39,6 @@ android {
         exclude 'META-INF/NOTICE'
         exclude 'META-INF/ASL2.0'
     }
-
-    dexOptions {
-        incremental true
-        preDexLibraries = false
-        jumboMode = false
-        javaMaxHeapSize "4g"
-    }
 }
 
 dependencies {
