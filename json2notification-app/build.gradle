@@ -5,6 +5,7 @@ buildscript {
 
     dependencies {
         classpath 'com.android.tools.build:gradle:1.2.3'
+            classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:0.12.200"
     }
 }
 
@@ -14,6 +15,7 @@ repositories {
 }
 
 apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
 
 android {
     compileSdkVersion 21
@@ -46,6 +48,7 @@ dependencies {
     //compile 'com.github.8tory:json2notification:-SNAPSHOT'
     compile 'com.android.support:appcompat-v7:21.0.3'
     compile 'com.android.support:support-v4:21.0.3'
+    compile 'org.jetbrains.kotlin:kotlin-stdlib:0.12.200'
 }
 
 tasks.withType(JavaCompile) {
