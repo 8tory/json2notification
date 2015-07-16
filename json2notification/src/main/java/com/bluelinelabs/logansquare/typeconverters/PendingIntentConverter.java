@@ -73,6 +73,7 @@ public class PendingIntentConverter implements TypeConverter<PendingIntent> {
     public void serialize(PendingIntent pendingIntent, String fieldName, boolean writeFieldNameForObject,
             JsonGenerator jsonGenerator) throws IOException {
         android.util.Log.d("json2notification", "PendingIntentConverter:serialize");
+        if (pendingIntent == null) return;
         SimplePendingIntent simplePendingIntent = new SimplePendingIntent();
         // TODO
         if (writeFieldNameForObject) jsonGenerator.writeFieldName(fieldName);
