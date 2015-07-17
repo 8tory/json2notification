@@ -11,7 +11,7 @@
  * See the License for the specific language governing permissions and
  * limitations under the License.
  */
-package com.infstory.notification;
+package json2notification;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -37,6 +37,7 @@ import static org.mockito.Mockito.verify;
 import static org.robolectric.Robolectric.shadowOf;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertNotNull;
 
 @RunWith(RobolectricTestRunner.class)
 @Config(manifest = Config.NONE)
@@ -131,13 +132,9 @@ public class MainTest {
 
     @Test
     public void parse() {
-        try {
-            Notification n = Notifications.from(activity, new JSONObject(rawJson));
-            notificationManager.notify(1, n);
-            assertNull(n);
-        } catch (JSONException e) {
-            System.out.println(e);
-        }
+        Notification n = Json2Notification.from(activity).with(rawJson).notification();
+        assertNotNull(n);
+        notificationManager.notify(1, n);
         //assertNull(shadowOf(notificationManager).getNotification(1));
     }
 }
