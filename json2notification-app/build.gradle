@@ -42,8 +42,9 @@ android {
 }
 
 dependencies {
-    compile project(':json2notification')
+    //compile project(':json2notification')
     //compile 'com.github.8tory:json2notification:-SNAPSHOT'
+    compile 'com.infstory:json2notification:1.0.0'
     compile 'com.android.support:appcompat-v7:21.0.3'
     compile 'com.android.support:support-v4:21.0.3'
 }

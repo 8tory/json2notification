@@ -65,7 +65,7 @@ public class MainActivity extends ActionBarActivity {
                 AndroidNotification androidNotification = AndroidNotification.parse(MainActivity.this, jsons[0]);
                 android.util.Log.d("json2notification-app", "notify:" + androidNotification.android.notification);
                 notificationManager.notify(1, androidNotification.android.notification);
-                android.util.Log.d("json2notification-app", "serialize:" + androidNotification.serialize());
+                //android.util.Log.d("json2notification-app", "serialize:" + androidNotification.serialize());
                 return null;
             }
         }.execute(wikiJson);
