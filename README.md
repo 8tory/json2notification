@@ -32,7 +32,9 @@ public SimpleParsePushBroadcastReceiver extends ParsePushBroadcastReceiver {
     @Override public void onReceive(final Context context, Intent intent) {
         String json = intent.getStringExtra("com.parse.Data");
 
-        Json2Notification.from(context).with(json).notifying();
+        Notification notification = Json2Notification.from(context).with(json).notification();
+NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+notificationManager.notify(1, notification);
     }
 }
 ```
