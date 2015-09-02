@@ -52,20 +52,36 @@ public class Json2Notification {
         return this;
     }
 
-    public Notification notification() {
-        Notification notification = null;
+    Notification notification;
+    AndroidNotification androidNotification;
 
-        try {
-            AndroidNotification androidNotification = AndroidNotification.parse(context, jsonObject.toString());
-            notification = androidNotification.android.notification;
-        } catch (Exception e) {
+    public Notification notification() {
+        //if (notification == null) {
+        if (androidNotification == null) {
+            try {
+                androidNotification = AndroidNotification.parse(context, jsonObject.toString());
+                notification = androidNotification.android.notification;
+            } catch (Exception e) {
+            }
         }
 
         return notification;
     }
 
-    public void notifying() {
-        NotificationManager notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
-        notificationManager.notify(1, notification());
+    NotificationManager notificationManager;
+
+    public NotificationManager notificationManager() {
+        if (notificationManager == null) {
+            notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+        }
+        return notificationManager;
+    }
+
+    public void notify(int id) {
+        notificationManager().notify(id, notification());
+    }
+
+    public void notify(String tag, int id) {
+        notificationManager().notify(tag, id, notification());
     }
 }
