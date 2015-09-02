@@ -25,6 +25,12 @@ NotificationManager notificationManager = (NotificationManager) context.getSyste
 notificationManager.notify(1, notification);
 ```
 
+or
+
+```java
+Json2Notification.from(context).with(json).notify(1);
+```
+
 ## Integration of Parse push notification
 
 ```java
