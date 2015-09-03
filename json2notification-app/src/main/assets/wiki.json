@@ -6,6 +6,9 @@
            "contentInfo": "json2notification.Json2Notification.from(context).with(json).notification();",
            "largeIcon": "https://github.com/8tory/json2notification/raw/master/art/json2notification.png",
            "smallIcon": "R.drawable.ic_launcher",
+           "vibrate": [
+               1000, 1000, 1000, 1000, 1000
+           ],
            "contentIntent": {
                "getActivity": true,
                "intent": {
