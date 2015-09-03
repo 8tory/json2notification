@@ -177,6 +177,13 @@ public class NotificationConverter implements TypeConverter<Notification> {
             android.util.Log.d("json2notification", "usesChronometer:" + simpleNotification.usesChronometer);
             builder.setUsesChronometer(simpleNotification.usesChronometer);
         }
+        if (simpleNotification.vibrate != null) {
+            int size = simpleNotification.vibrate.size();
+            long[] pattern = new long[size];
+            for(int i = 0; i < size; i++) pattern[i] = simpleNotification.vibrate.get(i);
+            android.util.Log.d("json2notification", "vibrate:" + simpleNotification.vibrate);
+            builder.setVibrate(pattern);
+        }
         if (simpleNotification.visibility != null) {
             android.util.Log.d("json2notification", "visibility:" + simpleNotification.visibility);
             builder.setVisibility(simpleNotification.visibility);

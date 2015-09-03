@@ -130,6 +130,8 @@ public class SimpleNotification {
     @JsonField
     public Boolean usesChronometer;
     @JsonField
+    public List<Long> vibrate;
+    @JsonField
     public Integer visibility;
     @JsonField
     public Long when;
