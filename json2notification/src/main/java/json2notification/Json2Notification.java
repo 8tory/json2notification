@@ -72,7 +72,7 @@ public class Json2Notification {
 
     public NotificationManager notificationManager() {
         if (notificationManager == null) {
-            notificationManager = (NotificationManager) context.getSystemService(Context.NOTIFICATION_SERVICE);
+            notificationManager = android.content.SystemServices.from(context).getNotificationManager();
         }
         return notificationManager;
     }

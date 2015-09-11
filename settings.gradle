@@ -1,2 +1,4 @@
 include ':json2notification'
 include ':json2notification-app'
+//include ':android-system-services'
+//project(':android-system-services').projectDir = new File(settingsDir, '../SystemServices/android-system-services')
