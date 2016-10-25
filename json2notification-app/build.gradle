@@ -16,8 +16,8 @@ repositories {
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 21
-    buildToolsVersion "21.1.2"
+    compileSdkVersion 23
+    buildToolsVersion "23.0.1"
 
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_7
@@ -26,7 +26,7 @@ android {
 
     defaultConfig {
         minSdkVersion 7
-        targetSdkVersion 21
+        targetSdkVersion 23
     }
 
     lintOptions {
@@ -45,8 +45,8 @@ dependencies {
     compile project(':json2notification')
     //compile 'com.github.8tory:json2notification:-SNAPSHOT'
     //compile 'com.infstory:json2notification:1.0.0'
-    compile 'com.android.support:appcompat-v7:21.0.3'
-    compile 'com.android.support:support-v4:21.0.3'
+    compile 'com.android.support:appcompat-v7:23.0.1'
+    compile 'com.android.support:support-v4:23.0.1'
 }
 
 tasks.withType(JavaCompile) {

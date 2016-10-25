@@ -22,8 +22,12 @@ import com.fasterxml.jackson.core.JsonParser;
 import com.bluelinelabs.logansquare.models.*;
 
 import android.app.PendingIntent;
+import android.content.Intent;
 import android.content.Context;
 import java.io.IOException;
+
+import android.support.annotation.Nullable;
+import java.lang.reflect.*;
 
 /**
  * <pre>
@@ -75,8 +79,53 @@ public class PendingIntentConverter implements TypeConverter<PendingIntent> {
         android.util.Log.d("json2notification", "PendingIntentConverter:serialize");
         if (pendingIntent == null) return;
         SimplePendingIntent simplePendingIntent = new SimplePendingIntent();
-        // TODO
+        simplePendingIntent.requestCode = 0;
+        simplePendingIntent.flags = PendingIntent.FLAG_UPDATE_CURRENT;
+        //simplePendingIntent.intent = pendingIntent.getIntent(); // hidden-api
+        simplePendingIntent.intent = getIntent(pendingIntent);
+        // pendingIntent.isActivity(); // hidden-api
+        boolean isActivity = isActivity(pendingIntent);
+        if (isActivity) {
+            simplePendingIntent.getActivity = true;
+        } else {
+            simplePendingIntent.getService = true;
+        }
         if (writeFieldNameForObject) jsonGenerator.writeFieldName(fieldName);
         SimplePendingIntent$$JsonObjectMapper._serialize((SimplePendingIntent) simplePendingIntent, jsonGenerator, true);
+    }
+
+    @Nullable
+    private Intent getIntent(PendingIntent pintent) {
+        Intent intent = null;
+        try {
+            Method getIntentMethod = pintent.getClass().getMethod("getIntent");
+            intent = (Intent) getIntentMethod.invoke(pintent);
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        return intent;
+    }
+
+    private boolean isActivity(PendingIntent pintent) {
+        boolean isActivity = false;
+        try {
+            Method isActivityMethod = pintent.getClass().getMethod("isActivity");
+            isActivity = (boolean) isActivityMethod.invoke(pintent);
+        } catch (NoSuchMethodException e) {
+            e.printStackTrace();
+        } catch (InvocationTargetException e) {
+            e.printStackTrace();
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        }
+        return isActivity;
     }
 }
