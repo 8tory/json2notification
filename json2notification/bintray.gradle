@@ -1,0 +1,23 @@
+apply plugin: 'com.novoda.bintray-release'
+
+def getRepositoryUsername() {
+    return hasProperty('BINTRAY_USER') ? BINTRAY_USER : ""
+}
+
+def getRepositoryPassword() {
+    return hasProperty('BINTRAY_KEY') ? BINTRAY_KEY : ""
+}
+
+apply from: 'git-version.gradle'
+
+publish {
+    userOrg = 'yongjhih'
+    groupId = 'com.infstory'
+    artifactId = 'json2notification'
+    publishVersion = readVersionName()
+    desc = 'Json to Android Notification'
+    website = 'https://github.com/8tory/json2notification'
+    bintrayUser = getRepositoryUsername()
+    bintrayKey = getRepositoryPassword()
+    dryRun = false
+}
