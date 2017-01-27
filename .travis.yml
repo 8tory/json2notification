@@ -1,6 +1,10 @@
 language: android
+jdk:
+    - oraclejdk8
 android:
   components:
+    - platform-tools
+    - tools
     - build-tools-23.0.1
     - android-23
     - extra-android-support
@@ -8,5 +12,15 @@ android:
   licenses:
     - '.+'
 
+before_install:
+    - mkdir "$ANDROID_HOME/licenses" || true
+    - echo -e "\n8933bad161af4178b1185d1a37fbf41ea5269c55" > "$ANDROID_HOME/licenses/android-sdk-license"
+    - echo -e "\n84831b9409646a918e30573bab4c9c91346d8abd" > "$ANDROID_HOME/licenses/android-sdk-preview-license"
+
 script:
     - ./gradlew clean assemble || ./gradlew --refresh-dependencies clean assemble
+after_success:
+    - ./gradlew jacocoTestReport
+    - bash <(curl -s https://codecov.io/bash)
+# as per http://blog.travis-ci.com/2014-12-17-faster-builds-with-container-based-infrastructure/
+sudo: false
