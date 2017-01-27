@@ -30,6 +30,7 @@ import org.robolectric.RuntimeEnvironment;
 import org.robolectric.annotation.Config;
 
 import static org.assertj.core.api.Java6Assertions.assertThat;
+import static org.robolectric.Shadows.shadowOf;
 
 @RunWith(RobolectricTestRunner.class)
 @Config(constants = BuildConfig.class)
@@ -105,12 +106,16 @@ public class MainTest {
     }
 
     @Test
-    public void parse() {
+    public void testParse() {
         Notification n = Json2Notification.from(context).with(rawJson).notification();
         System.out.println(n);
         assertThat(n).isNotNull();
-        notificationManager.notify(1, n);
-        //assertThat(shadowOf(notificationManager).getNotification(1)).isNull();
+    }
+
+    @Test
+    public void testNotify() {
+        Json2Notification.from(context).with(rawJson).notify(1);
+        assertThat(shadowOf(notificationManager).getNotification(1)).isNotNull();
     }
 
     @Test
