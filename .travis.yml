@@ -1,6 +1,4 @@
 language: android
-jdk:
-    - oraclejdk7
 android:
   components:
     - build-tools-23.0.1
@@ -10,8 +8,5 @@ android:
   licenses:
     - '.+'
 
-before_install:
-    - export JAVA7_HOME=/usr/lib/jvm/java-7-oracle
-    - export JAVA_HOME=$JAVA7_HOME
 script:
     - ./gradlew clean assemble || ./gradlew --refresh-dependencies clean assemble
