@@ -13,51 +13,27 @@
  */
 package json2notification;
 
-import android.app.Activity;
-import android.app.Fragment;
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
-import android.support.v4.app.FragmentActivity;
+import android.content.Intent;
+import android.support.v4.app.NotificationCompat;
+
+import com.infstory.notification.BuildConfig;
 
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.Mock;
-import org.mockito.MockitoAnnotations;
-import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.RuntimeEnvironment;
 import org.robolectric.annotation.Config;
 
-import android.app.Notification;
-import android.app.NotificationManager;
-
-import org.json.JSONObject;
-import org.json.JSONException;
-
 import static org.assertj.core.api.Java6Assertions.assertThat;
-import static org.mockito.Mockito.verify;
-import android.app.PendingIntent;
-import android.app.Notification;
-import android.support.v4.app.NotificationCompat;
-import android.content.Intent;
-
-import com.infstory.notification.BuildConfig;
 
 @RunWith(RobolectricTestRunner.class)
 @Config(constants = BuildConfig.class)
-//@Config(manifest = Config.NONE)
 public class MainTest {
-    // support library fragments
-    private FragmentActivity fragmentActivity;
-    private android.support.v4.app.Fragment supportFragment;
-
-    // native fragments
-    private Activity activity;
-    private Fragment fragment;
-
-    @Mock
-    private JSONObject json;
-
     private String rawJson = "{" +
                                    "\"android\": {" +
                                        "\"notification\": {" +
