@@ -65,7 +65,7 @@ repositories {
 }
 
 dependencies {
-    compile 'com.infstory:json2notification:1.0.0'
+    compile 'com.infstory:json2notification:1.0.1'
 }
 ```
 
