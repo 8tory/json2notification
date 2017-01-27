@@ -20,8 +20,12 @@ import com.fasterxml.jackson.core.JsonGenerator;
 import com.fasterxml.jackson.core.JsonParser;
 
 import com.bluelinelabs.logansquare.models.*;
+
+import android.annotation.TargetApi;
 import android.content.Context;
 
+import android.os.Build;
+import android.support.annotation.NonNull;
 import android.support.v4.app.NotificationCompat;
 import android.app.Notification;
 import java.io.IOException;
@@ -58,7 +62,7 @@ public class NotificationConverter implements TypeConverter<Notification> {
 
     @Override
     public Notification parse(JsonParser jsonParser) throws IOException {
-        SimpleNotification simpleNotification = SimpleNotification$$JsonObjectMapper._parse(jsonParser);
+        SimpleNotification simpleNotification = new SimpleNotification$$JsonObjectMapper().parse(jsonParser);
         NotificationCompat.Builder builder = new NotificationCompat.Builder(context);
 
         if (simpleNotification.autoCancel != null) {
@@ -212,6 +216,15 @@ public class NotificationConverter implements TypeConverter<Notification> {
         android.util.Log.d("json2notification", "fieldName:" + fieldName);
         android.util.Log.d("json2notification", "notification:" + notification);
         if (notification == null) return;
+
+        android.util.Log.d("json2notification", "writeFieldNameForObject:" + writeFieldNameForObject);
+        if (writeFieldNameForObject) jsonGenerator.writeFieldName(fieldName);
+        new SimpleNotification$$JsonObjectMapper().serialize(toSimpleNotification(notification), jsonGenerator, true);
+    }
+
+    @TargetApi(Build.VERSION_CODES.KITKAT)
+    @NonNull
+    public static SimpleNotification toSimpleNotification(@NonNull Notification notification) {
         SimpleNotification simpleNotification = new SimpleNotification();
 
         simpleNotification.autoCancel = (notification.flags & Notification.FLAG_AUTO_CANCEL) == Notification.FLAG_AUTO_CANCEL;
@@ -232,7 +245,8 @@ public class NotificationConverter implements TypeConverter<Notification> {
         if (simpleNotification.groupKey != null) {
             simpleNotification.groupSummary = (notification.flags & Notification.FLAG_GROUP_SUMMARY) == Notification.FLAG_GROUP_SUMMARY;
         }
-        simpleNotification.largeIcon = Bitmaps.base64((Bitmap) notification.extras.getParcelable(Notification.EXTRA_LARGE_ICON));
+        Bitmap bitmap = notification.extras.getParcelable(Notification.EXTRA_LARGE_ICON);
+        if (bitmap != null) simpleNotification.largeIcon = Bitmaps.base64(bitmap);
         if ((notification.flags & Notification.FLAG_SHOW_LIGHTS) == Notification.FLAG_SHOW_LIGHTS) {
             simpleNotification.lights = Arrays.asList(notification.ledARGB, notification.ledOnMS, notification.ledOffMS);
         }
@@ -259,10 +273,7 @@ public class NotificationConverter implements TypeConverter<Notification> {
         simpleNotification.tickerText = notification.tickerText;
         simpleNotification.usesChronometer = notification.extras.getBoolean(Notification.EXTRA_SHOW_CHRONOMETER);
         simpleNotification.visibility = notification.visibility > 0 ? notification.visibility : null;
-
-        android.util.Log.d("json2notification", "writeFieldNameForObject:" + writeFieldNameForObject);
-        if (writeFieldNameForObject) jsonGenerator.writeFieldName(fieldName);
-        SimpleNotification$$JsonObjectMapper._serialize((SimpleNotification) simpleNotification, jsonGenerator, true);
+        return simpleNotification;
     }
 
     //@Override

@@ -19,10 +19,14 @@ package com.bluelinelabs.logansquare.typeconverters;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import java.io.ByteArrayOutputStream;
+
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
 import android.util.Base64;
 
 public class Bitmaps {
-    public static String base64(Bitmap bitmap) {
+    @Nullable
+    public static String base64(@NonNull Bitmap bitmap) {
         //byte[] bytes = Base64.decode(image, Base64.DEFAULT);
 
         ByteArrayOutputStream outStream = new ByteArrayOutputStream();
@@ -32,7 +36,8 @@ public class Bitmaps {
         return Base64.encodeToString(bytes, Base64.DEFAULT);
     }
 
-    public static Bitmap bitmap(String base64) {
+    @Nullable
+    public static Bitmap bitmap(@NonNull String base64) {
         byte[] bytes = Base64.decode(base64, 0);
         return BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
     }

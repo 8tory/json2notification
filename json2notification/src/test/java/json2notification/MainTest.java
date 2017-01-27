@@ -25,6 +25,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
+import org.robolectric.RuntimeEnvironment;
 import org.robolectric.annotation.Config;
 
 import android.app.Notification;
@@ -33,14 +34,18 @@ import android.app.NotificationManager;
 import org.json.JSONObject;
 import org.json.JSONException;
 
+import static org.assertj.core.api.Java6Assertions.assertThat;
 import static org.mockito.Mockito.verify;
-import static org.robolectric.Robolectric.shadowOf;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertNull;
-import static org.junit.Assert.assertNotNull;
+import android.app.PendingIntent;
+import android.app.Notification;
+import android.support.v4.app.NotificationCompat;
+import android.content.Intent;
+
+import com.infstory.notification.BuildConfig;
 
 @RunWith(RobolectricTestRunner.class)
-@Config(manifest = Config.NONE)
+@Config(constants = BuildConfig.class)
+//@Config(manifest = Config.NONE)
 public class MainTest {
     // support library fragments
     private FragmentActivity fragmentActivity;
@@ -115,26 +120,37 @@ public class MainTest {
                                 "}";
 
     NotificationManager notificationManager;
+    Context context;
 
     @Before
     public void setup() {
-        MockitoAnnotations.initMocks(this);
-        supportFragment = new android.support.v4.app.Fragment();
-        fragmentActivity = Robolectric.buildActivity(FragmentActivity.class).create().get();
-        fragmentActivity.getSupportFragmentManager().beginTransaction().add(supportFragment, null).commit();
-
-        fragment = new Fragment();
-        activity = Robolectric.buildActivity(Activity.class).create().get();
-        activity.getFragmentManager().beginTransaction().add(fragment, null).commit();
-
-        NotificationManager notificationManager = (NotificationManager) Robolectric.application.getSystemService(Context.NOTIFICATION_SERVICE);
+        notificationManager = (NotificationManager) RuntimeEnvironment.application.getSystemService(Context.NOTIFICATION_SERVICE);
+        context = RuntimeEnvironment.application.getApplicationContext();
     }
 
     @Test
     public void parse() {
-        Notification n = Json2Notification.from(activity).with(rawJson).notification();
-        assertNotNull(n);
+        Notification n = Json2Notification.from(context).with(rawJson).notification();
+        System.out.println(n);
+        assertThat(n).isNotNull();
         notificationManager.notify(1, n);
-        //assertNull(shadowOf(notificationManager).getNotification(1));
+        //assertThat(shadowOf(notificationManager).getNotification(1)).isNull();
+    }
+
+    @Test
+    public void testSerialize() {
+        Intent intent = new Intent(Intent.ACTION_MAIN);
+        intent.addCategory(Intent.CATEGORY_HOME);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+        Notification notification = new NotificationCompat.Builder(context)
+            .setContentTitle("Hello World!")
+            .setContentText("Hello World!")
+            .setContentIntent(PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT))
+            .build();
+
+        String json = Json2Notification.from(context).with(notification).serialize();
+        System.out.println(json);
+        assertThat(json).isNotNull();
     }
 }

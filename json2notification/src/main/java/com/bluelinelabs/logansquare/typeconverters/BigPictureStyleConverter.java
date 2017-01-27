@@ -29,7 +29,7 @@ import com.nostra13.universalimageloader.core.ImageLoader;
 public class BigPictureStyleConverter implements TypeConverter<NotificationCompat.BigPictureStyle> {
     @Override
     public NotificationCompat.BigPictureStyle parse(JsonParser jsonParser) throws IOException {
-        SimpleBigPictureStyle simpleBigPictureStyle = SimpleBigPictureStyle$$JsonObjectMapper._parse(jsonParser);
+        SimpleBigPictureStyle simpleBigPictureStyle = new SimpleBigPictureStyle$$JsonObjectMapper().parse(jsonParser);
         NotificationCompat.BigPictureStyle bigPictureStyle = new NotificationCompat.BigPictureStyle();
 
         if (simpleBigPictureStyle.bigLargeIcon != null) {
@@ -72,6 +72,6 @@ public class BigPictureStyleConverter implements TypeConverter<NotificationCompa
         SimpleBigPictureStyle simpleBigPictureStyle = new SimpleBigPictureStyle();
         // TODO
         if (writeFieldNameForObject) jsonGenerator.writeFieldName(fieldName);
-        SimpleBigPictureStyle$$JsonObjectMapper._serialize((SimpleBigPictureStyle) simpleBigPictureStyle, jsonGenerator, true);
+        new SimpleBigPictureStyle$$JsonObjectMapper().serialize((SimpleBigPictureStyle) simpleBigPictureStyle, jsonGenerator, true);
     }
 }

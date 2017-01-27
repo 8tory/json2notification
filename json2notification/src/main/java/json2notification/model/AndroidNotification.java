@@ -89,6 +89,10 @@ public class AndroidNotification {
         }
     }
 
+    public String toString() {
+        return serialize();
+    }
+
     public String serialize() {
         LoganSquare.registerTypeConverter(PendingIntent.class, new PendingIntentConverter(context));
         LoganSquare.registerTypeConverter(Notification.class, new NotificationConverter(context));

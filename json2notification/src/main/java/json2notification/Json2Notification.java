@@ -24,6 +24,13 @@ import org.json.JSONException;
 
 import json2notification.model.AndroidNotification;
 import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.app.Notification;
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+
+import com.bluelinelabs.logansquare.typeconverters.*;
+import com.bluelinelabs.logansquare.LoganSquare;
 
 public class Json2Notification {
     private static final String TAG = "json2notification";
@@ -38,6 +45,7 @@ public class Json2Notification {
         this.context = context;
     }
 
+    @NonNull
     public Json2Notification with(String json) {
         try {
             return with(new JSONObject(json));
@@ -47,14 +55,22 @@ public class Json2Notification {
         return this;
     }
 
+    @NonNull
     public Json2Notification with(JSONObject jsonObject) {
         this.jsonObject = jsonObject;
+        return this;
+    }
+
+    @NonNull
+    public Json2Notification with(Notification notification) {
+        this.notification = notification;
         return this;
     }
 
     Notification notification;
     AndroidNotification androidNotification;
 
+    @Nullable
     public Notification notification() {
         //if (notification == null) {
         if (androidNotification == null) {
@@ -62,6 +78,7 @@ public class Json2Notification {
                 androidNotification = AndroidNotification.parse(context, jsonObject.toString());
                 notification = androidNotification.android.notification;
             } catch (Exception e) {
+                e.printStackTrace();
             }
         }
 
@@ -70,6 +87,7 @@ public class Json2Notification {
 
     NotificationManager notificationManager;
 
+    @NonNull
     public NotificationManager notificationManager() {
         if (notificationManager == null) {
             notificationManager = android.content.SystemServices.from(context).getNotificationManager();
@@ -83,5 +101,23 @@ public class Json2Notification {
 
     public void notify(String tag, int id) {
         notificationManager().notify(tag, id, notification());
+    }
+
+    @Nullable
+    public String serialize() {
+        if (notification == null) return null;
+        // TODO androidNotification
+        //androidNotification = new AndroidNotification();
+        //androidNotification.android.notification = notification;
+        //String text = androidNotification.serialize();
+        //LoganSquare.registerTypeConverter(Notification.class, new NotificationConverter(context));
+        LoganSquare.registerTypeConverter(PendingIntent.class, new PendingIntentConverter(context));
+
+        try {
+            return LoganSquare.serialize(NotificationConverter.toSimpleNotification(notification));
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
     }
 }

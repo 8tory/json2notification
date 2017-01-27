@@ -39,7 +39,7 @@ import java.io.IOException;
 public class IntentConverter implements TypeConverter<Intent> {
     @Override
     public Intent parse(JsonParser jsonParser) throws IOException {
-        SimpleIntent simpleIntent = SimpleIntent$$JsonObjectMapper._parse(jsonParser);
+        SimpleIntent simpleIntent = new SimpleIntent$$JsonObjectMapper().parse(jsonParser);
         Intent intent = new Intent();
 
         android.util.Log.d("json2notification", "action:" + simpleIntent.action);
@@ -65,7 +65,7 @@ public class IntentConverter implements TypeConverter<Intent> {
         simpleIntent.uri = intent.getData();
         simpleIntent.action = intent.getAction();
         if (writeFieldNameForObject) jsonGenerator.writeFieldName(fieldName);
-        SimpleIntent$$JsonObjectMapper._serialize((SimpleIntent) simpleIntent, jsonGenerator, true);
+        new SimpleIntent$$JsonObjectMapper().serialize((SimpleIntent) simpleIntent, jsonGenerator, true);
     }
 }
 

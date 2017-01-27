@@ -107,6 +107,22 @@ dependencies {
 }
 ```
 
+## Bonus: serialization
+
+```java
+Intent intent = new Intent(Intent.ACTION_MAIN);
+intent.addCategory(Intent.CATEGORY_HOME);
+intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+
+new NotificationCompat.Builder(context)
+    .setContentTitle("Hello World!")
+    .setContentText("Hello World!")
+    .setContentIntent(PendingIntent.getActivity(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT))
+    .build();
+
+String json = Json2Notification.from(context).with(notifiction).serialize();
+```
+
 ## Live Demo
 
 * status bar: https://appetize.io/app/bvrbydvtv3rex17t2ebn4wvcum

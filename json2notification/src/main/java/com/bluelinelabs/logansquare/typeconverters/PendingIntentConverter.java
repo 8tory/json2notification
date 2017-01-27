@@ -50,7 +50,7 @@ public class PendingIntentConverter implements TypeConverter<PendingIntent> {
 
     @Override
     public PendingIntent parse(JsonParser jsonParser) throws IOException {
-        SimplePendingIntent simplePendingIntent = SimplePendingIntent$$JsonObjectMapper._parse(jsonParser);
+        SimplePendingIntent simplePendingIntent = new SimplePendingIntent$$JsonObjectMapper().parse(jsonParser);
 
         PendingIntent pendingIntent = null;
 
@@ -91,7 +91,7 @@ public class PendingIntentConverter implements TypeConverter<PendingIntent> {
             simplePendingIntent.getService = true;
         }
         if (writeFieldNameForObject) jsonGenerator.writeFieldName(fieldName);
-        SimplePendingIntent$$JsonObjectMapper._serialize((SimplePendingIntent) simplePendingIntent, jsonGenerator, true);
+        new SimplePendingIntent$$JsonObjectMapper().serialize((SimplePendingIntent) simplePendingIntent, jsonGenerator, true);
     }
 
     @Nullable
